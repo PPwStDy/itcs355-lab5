@@ -29,3 +29,18 @@ def test_model_version_satisfies_azure_integer_constraint():
         assert version.isdecimal() and 0 < int(version) < 2**31
         assert model_version(run_id) == version
     assert model_version("a") != model_version("b")
+
+
+def test_actual_deployment_spec_passes_installed_azure_schema():
+    from io import StringIO
+    import yaml
+    from azure.ai.ml import load_online_deployment
+    from cloudlayer.lab5_runtime import deployment_spec
+
+    spec = deployment_spec(
+        {"id": "/subscriptions/example/models/itcs355-lab5/versions/42", "version": "42"},
+        "example.azurecr.io/model:sha",
+    )
+    deployment = load_online_deployment(source=StringIO(yaml.safe_dump(spec)))
+    deployment._validate()
+    assert deployment.model == "itcs355-lab5:42"

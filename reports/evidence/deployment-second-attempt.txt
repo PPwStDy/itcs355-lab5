@@ -1,0 +1,62 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/azure/ai/ml/entities/_util.py", line 192, in load_from_dict
+    return schema(context=context).load(data, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/marshmallow/schema.py", line 792, in load
+    return self._do_load(
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/marshmallow/schema.py", line 999, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'model': [{'_schema': ["In order to specify an existing models, please provide the correct registry path prefixed with 'azureml://':\n"]}, {'_schema': ["In order to specify an existing models, please provide either of the following prefixed with 'azureml:':\n1. The full ARM ID for the resource, e.g.azureml:/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace_name>/models\n2. The short-hand name of the resource registered in the workspace, eg: azureml:<short-hand-name>:<version-if applicable>. For example, version 1 of the environment registered as 'my-env' in the workspace can be referenced as 'azureml:my-env:1'"]}, {'_schema': ['Invalid input type.']}]}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/azureml/cr/j/b2d746d79bc94c9db42b1dce839399c7/exe/wd/cloudlayer/lab5_runtime.py", line 201, in <module>
+    main()
+  File "/mnt/azureml/cr/j/b2d746d79bc94c9db42b1dce839399c7/exe/wd/cloudlayer/lab5_runtime.py", line 168, in main
+    load_online_deployment(source=StringIO(yaml.safe_dump(spec)))
+  File "/usr/local/lib/python3.12/site-packages/azure/ai/ml/entities/_load_functions.py", line 645, in load_online_deployment
+    return cast(OnlineDeployment, load_common(OnlineDeployment, source, relative_origin, params_override, **kwargs))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/azure/ai/ml/entities/_load_functions.py", line 132, in load_common
+    raise e
+  File "/usr/local/lib/python3.12/site-packages/azure/ai/ml/entities/_load_functions.py", line 106, in load_common
+    return _load_common_raising_marshmallow_error(cls, yaml_dict, relative_origin, params_override, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/azure/ai/ml/entities/_load_functions.py", line 166, in _load_common_raising_marshmallow_error
+    res: Resource = cls._load(data=yaml_dict, yaml_path=relative_origin, params_override=params_override, **kwargs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/azure/ai/ml/entities/_deployment/online_deployment.py", line 320, in _load
+    res_manage: OnlineDeployment = load_from_dict(ManagedOnlineDeploymentSchema, data, context, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/azure/ai/ml/entities/_util.py", line 195, in load_from_dict
+    raise ValidationError(decorate_validation_error(schema, pretty_error, additional_message)) from e
+marshmallow.exceptions.ValidationError: Validation for ManagedOnlineDeploymentSchema failed:
+
+ {
+  "model": [
+    {
+      "_schema": [
+        "In order to specify an existing models, please provide the correct registry path prefixed with 'azureml://':\n"
+      ]
+    },
+    {
+      "_schema": [
+        "In order to specify an existing models, please provide either of the following prefixed with 'azureml:':\n1. The full ARM ID for the resource, e.g.azureml:/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace_name>/models\n2. The short-hand name of the resource registered in the workspace, eg: azureml:<short-hand-name>:<version-if applicable>. For example, version 1 of the environment registered as 'my-env' in the workspace can be referenced as 'azureml:my-env:1'"
+      ]
+    },
+    {
+      "_schema": [
+        "Invalid input type."
+      ]
+    }
+  ]
+} 
+
+ 
+
+Visit this link to refer to the ManagedOnlineDeployment schema if needed: https://aka.ms/ml-cli-v2-deployment-managed-online-yaml-reference.
+The easiest way to author a specification file is using IntelliSense and auto-completion Azure ML VS code extension provides: https://code.visualstudio.com/docs/datascience/azure-machine-learning. To set up: https://learn.microsoft.com/azure/machine-learning/how-to-setup-vs-code

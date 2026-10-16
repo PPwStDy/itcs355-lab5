@@ -82,6 +82,8 @@ def main():
         warmup=5,
         concurrency=1,
         observed_rps=rps,
+        measured_requests_seconds=elapsed,
+        sample_latencies_ms=[round(value * 1000, 4) for value in latencies],
         latency_p50_ms=median(latencies) * 1000,
         latency_p95_ms=sorted(latencies)[int(0.95 * (len(latencies) - 1))] * 1000,
         model_version=responses[-1]["model_version"],

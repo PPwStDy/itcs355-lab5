@@ -1,0 +1,37 @@
+{
+  "name": "cool_snail_mbr3hblvc3",
+  "status": "Failed",
+  "studio_url": "https://ml.azure.com/runs/cool_snail_mbr3hblvc3?wsid=/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourcegroups/itcs355-6688218/workspaces/itcs355-6688218&tid=9bc585f9-a8b8-431c-9013-efa7b2b40cdf",
+  "children": [
+    {
+      "name": "a762d7f9-ae32-43af-938e-6e0801bbd813",
+      "status": "Completed",
+      "display_name": "ingest"
+    },
+    {
+      "name": "435f82e5-9dd0-4fb8-be04-7173c593b216",
+      "status": "Completed",
+      "display_name": "validate"
+    },
+    {
+      "name": "df156e2f-b960-4148-a14e-32a3343df969",
+      "status": "Completed",
+      "display_name": "train"
+    },
+    {
+      "name": "f02b2395-ffee-4979-9436-cef16f19c9a9",
+      "status": "Completed",
+      "display_name": "evaluate"
+    },
+    {
+      "name": "ffed90b8-b49c-46de-b89e-c964f37ba538",
+      "status": "Completed",
+      "display_name": "register"
+    },
+    {
+      "name": "a7d3a6a2-6f7a-4216-85ee-fe8cd0d04a31",
+      "status": "Failed",
+      "display_name": "deploy_staging"
+    }
+  ]
+}

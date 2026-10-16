@@ -35,20 +35,21 @@ def client():
 
 
 def incumbent_score(ml, source, metrics, bootstrap):
-    from azure.core.exceptions import ResourceNotFoundError
-
     # Query the workspace collection first: Azure can return AuthorizationFailed
     # for a child lookup whose parent endpoint has never existed.
     if not any(ep.name == "itcs355-lab5-staging" for ep in ml.online_endpoints.list()):
         if bootstrap:
             return None
         raise RuntimeError("No deployed incumbent; explicit bootstrap required")
-    try:
-        deployed = ml.online_deployments.get(endpoint_name="itcs355-lab5-staging", name="blue")
-    except ResourceNotFoundError:
+    endpoint = ml.online_endpoints.get("itcs355-lab5-staging")
+    serving = {name: weight for name, weight in (endpoint.traffic or {}).items() if weight > 0}
+    if not serving:
         if bootstrap:
             return None
         raise RuntimeError("No deployed incumbent; explicit bootstrap required")
+    if len(serving) != 1 or sum(serving.values()) != 100:
+        raise RuntimeError("Mixed incumbent traffic requires an explicit comparison policy")
+    deployed = ml.online_deployments.get(endpoint_name=endpoint.name, name=next(iter(serving)))
     model_id = deployed.model.id if hasattr(deployed.model, "id") else deployed.model
     model = ml.models.get(
         name=model_id.split("/models/")[1].split("/")[0], version=model_id.rsplit("/", 1)[1]
@@ -64,6 +65,27 @@ def incumbent_score(ml, source, metrics, bootstrap):
         roc_auc_score(
             validation[data.TARGET], incumbent.predict_proba(validation[data.FEATURES])[:, 1]
         )
+    )
+
+
+def deployment_spec(registered, image):
+    routes = {
+        name: {"port": 8080, "path": path}
+        for name, path in [
+            ("liveness_route", "/health"),
+            ("readiness_route", "/ready"),
+            ("scoring_route", "/predict"),
+        ]
+    }
+    return dict(
+        name="blue",
+        endpoint_name="itcs355-lab5-staging",
+        model="azureml:itcs355-lab5:" + registered["version"],
+        environment={"image": image, "inference_config": routes},
+        instance_type="Standard_DS2_v2",
+        instance_count=1,
+        tags={"course": "itcs355", "lab": "5"},
+        environment_variables={"MODEL_VERSION": registered["version"]},
     )
 
 
@@ -146,24 +168,7 @@ def main():
             ml.online_endpoints.begin_create_or_update(
                 load_online_endpoint(source=StringIO(yaml.safe_dump(endpoint)))
             ).result()
-        routes = {
-            name: {"port": 8080, "path": path}
-            for name, path in [
-                ("liveness_route", "/health"),
-                ("readiness_route", "/ready"),
-                ("scoring_route", "/predict"),
-            ]
-        }
-        spec = dict(
-            name="blue",
-            endpoint_name="itcs355-lab5-staging",
-            model=registered["id"],
-            environment={"image": os.environ["SERVING_IMAGE"], "inference_config": routes},
-            instance_type="Standard_DS2_v2",
-            instance_count=1,
-            tags=tags,
-            environment_variables={"MODEL_VERSION": registered["version"]},
-        )
+        spec = deployment_spec(registered, os.environ["SERVING_IMAGE"])
         ml.online_deployments.begin_create_or_update(
             load_online_deployment(source=StringIO(yaml.safe_dump(spec)))
         ).result()

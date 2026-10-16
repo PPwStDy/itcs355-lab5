@@ -1,0 +1,11 @@
+{
+  "provider_receipts": 60,
+  "unique_provider_request_ids": 60,
+  "local_policy_results": 24,
+  "models": [
+    "gpt-5-mini-2025-08-07"
+  ],
+  "all_prompt_hashes_match": true,
+  "usage_fields_match_raw_receipts": true,
+  "token_cost_thb": 0.39223736973590295
+}

@@ -31,13 +31,14 @@ The pipeline uses a versioned sensor data asset, an immutable uploaded source sn
 
 The promotion policy requires validation ROC AUC ≥0.75 and an improvement ≥0.01 over the deployed incumbent. The first run requires explicit bootstrap. Missing incumbent access or a nonfinite score fails. The 0.01 margin is a conservative policy to avoid promoting tiny changes on this small synthetic dataset; it is not a statistically calibrated confidence interval. Before operational use, compare seeds or a paired uncertainty estimate on the same machine groups. Test ROC AUC is reported separately and never drives repeated promotion decisions.
 
-For subsequent runs, evaluation downloads the model actually attached to the staging deployment and scores it on the candidate's current validation window. It does not compare stale scores from different datasets. The forced 0.99 incumbent used in the negative exercise is explicitly fault injection, not a real production metric.
+For subsequent runs, evaluation reads the endpoint traffic map and downloads the model attached to the deployment receiving 100% of automatic traffic, then scores it on the candidate's current validation window. Zero-traffic preflight deployments are not serving incumbents; missing automatic traffic still requires explicit bootstrap. Mixed traffic is rejected until an explicit comparison policy is configured. It does not compare stale scores from different datasets. The forced 0.99 incumbent used in the negative exercise is explicitly fault injection, not a real production metric.
 
 ```sh
 make pipeline               # compile native managed DAG from prepared cloud settings
 make pipeline-bootstrap     # explicit first registration only
 make pipeline-submit        # compare against the deployed incumbent
 make pipeline-reject        # submit deliberately rejecting managed run
+python -m cloudlayer.serving_preflight  # optional gated-model test with automatic traffic held at zero
 ```
 
 `reports/cloud-settings.json` is generated during provisioning and ignored by Git; it contains resource references, never account keys. The approved cloud setup and validation proof are in [.azure/plan.md](.azure/plan.md). The pre-run estimate was committed as `c3b7231` before the first managed run. The runtime image build is recorded in `reports/evidence/container-build.json`; managed jobs also upload the source separately as an immutable code asset.
