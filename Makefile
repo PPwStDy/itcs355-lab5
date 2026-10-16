@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 PYTHON ?= python
-.PHONY: data test lint portability-audit pipeline pipeline-reject llm-eval llm-gate guardrail cost-report swap-check teardown
+.PHONY: data test lint portability-audit pipeline pipeline-submit pipeline-local pipeline-reject pipeline-reject-local llm-eval llm-gate guardrail cost-report swap-check teardown teardown-verify billing
 
 data:
 	$(PYTHON) scripts/make_dataset.py
@@ -19,6 +19,9 @@ pipeline:
 
 pipeline-submit:
 	$(PYTHON) -m cloudlayer.manage submit
+
+pipeline-bootstrap:
+	$(PYTHON) -m cloudlayer.manage submit --bootstrap
 
 pipeline-local: data
 	$(PYTHON) scripts/run_pipeline.py --bootstrap
@@ -50,3 +53,6 @@ teardown:
 
 teardown-verify:
 	$(PYTHON) scripts/teardown_verify.py
+
+billing:
+	$(PYTHON) -m cloudlayer.billing

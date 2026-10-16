@@ -1,6 +1,6 @@
 # Lab 5 Azure deployment plan
 
-Status: Approved — user approved Azure execution and teardown on 2026-10-16.
+Status: Validated — azure-validate checks passed; approved Azure execution may proceed.
 Generated: 2026-10-16 (Asia/Bangkok).
 
 ## Objective
@@ -8,7 +8,7 @@ Complete ITCS355 Lab 5 on the sensor-maintenance service: managed ingest → val
 
 ## Proposed context
 - Current signed-in subscription: Azure for Students (6638a4ea-96da-4326-969a-2e40305cfc83).
-- Proposed location: East Asia; confirm before cloud generation or deployment.
+- Approved primary location: East Asia. The user also approved a temporary Southeast Asia LLM test; that region was denied by subscription policy, so no LLM account was created. Korea Central is a validated alternative awaiting approval.
 - Additional spending ceiling proposed: ฿150, and never exceed the remaining ฿800 term allowance.
 - Reuse suitable existing Azure ML workspace, registry and storage only after checking ownership and tags.
 - Recipe: Azure CLI, matching the existing labs' Azure ML and CLI conventions.
@@ -32,7 +32,7 @@ Do not change the existing cpu-cluster. Create tagged Lab 5 resources and remove
 
 Official endpoint-limit reference: https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-quotas?view=azureml-api-2
 
-The current calculated forecast is approximately 39.42 THB (see reports/pre-run-estimate.md), with an additional spending ceiling of 150 THB. No managed job has been submitted.
+The current calculated forecast is approximately 39.42 THB (see reports/pre-run-estimate.md), with an additional spending ceiling of 150 THB. Managed runs and current completion/failure evidence are retained under reports/evidence.
 
 ## Approval boundary
 Offline evaluation, cost arithmetic, tests, documentation and provider-neutral pipeline logic proceed independently. Azure-specific infrastructure generation/deployment waits for the approved, quota-validated plan. The azure-prepare skill requires: “Get approval — Present plan to user before execution”.
@@ -46,16 +46,38 @@ Offline evaluation, cost arithmetic, tests, documentation and provider-neutral p
 - Read-only teardown verification; deletion is a separate operation.
 
 ## Cloud execution checklist
-- [ ] Confirm subscription, region, budget and second provider.
+- [x] Confirm Azure subscription, primary region and budget.
+- [ ] Second-provider account still unavailable.
 - [x] Read-only workspace/cluster/endpoint inventory and DSv2 quota validation.
 - [x] User approved concrete cloud plan, spending ceiling and teardown.
-- [ ] Commit pre-run estimate before submitting any managed run.
-- [ ] Implement/validate provider pipeline, scoped identities and schedule.
-- [ ] Run pipeline including a deliberately failing gate.
-- [ ] Demonstrate revoked permission and restore only that permission.
+- [x] Commit pre-run estimate before submitting any managed run (c3b7231).
+- [x] Implement/validate provider pipeline, scoped identities and schedule.
+- [x] Run a deliberately failing managed gate; registration and deployment never started.
+- [ ] Complete the accepted six-stage managed run.
+- [x] Demonstrate revoked permission (actual 403) and restore only that permission.
+- [ ] Confirm restored Reader access from a managed job after Azure propagation.
 - [ ] Demonstrate real second-provider upload/download/invoke.
 - [ ] Record live LLM usage, capped run, cache observations and current price sources.
 - [ ] Capture billing and console evidence; remove only Lab 5 resources.
 - [ ] Verify empty lists and delayed billing after 24 hours.
 
-No cloud deployment or spending is claimed by this file.
+Actual cloud execution is in progress. One idle node was observed scaling to zero in 177.33 seconds; this removes 7.1776 THB/hour of idle retail capacity. Invoice savings and full billing remain pending.
+
+## 7. Validation proof (azure-validate)
+
+Validation timestamp: 2026-10-16T08:03:31.893371+00:00.
+
+| Check | Actual command/result |
+|---|---|
+| Subscription/authentication | az account show: Azure for Students, expected subscription Enabled |
+| Regional quota | az quota show / usage show: DSv2 6 limit, 0 used; planned 4 cores |
+| Python tests | .venv/bin/python -m pytest -q tests cloudlayer/tests: 50 passed |
+| Lint | ruff check application, scripts, tests and new cloud runtime: passed |
+| Portability | scripts/portability_audit.py: zero hits |
+| Pipeline schema | compile_azure(...)._validate(): Succeeded; six-stage YAML generated |
+| Infrastructure syntax | az bicep build --file infra/main.bicep: passed |
+| ARM validation | az deployment group validate: Succeeded, no error |
+| Preview | az deployment group what-if: three new Lab 5 identities only; existing resources Ignore |
+| Container build | Azure ACR build ck1: Succeeded, image digest sha256:c8b4e4a1d7843c69e417e55c67cae352446551b1e22961abd31a310c36595be2 |
+
+Validated by the azure-validate workflow. Azure CLI/SDK service operations are used; no new workspace, storage account or registry is provisioned. The user approved this subscription, East Asia, spending limits and teardown.

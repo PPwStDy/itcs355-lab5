@@ -1,0 +1,658 @@
+{
+  "source": "Azure Cognitive Services usage list after Microsoft.CognitiveServices registration",
+  "regions": {
+    "eastasia": [
+      {
+        "name": "OpenAI.S0.AccountCount",
+        "limit": 1.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.Provisioned.gpt-4o-audio-preview",
+        "limit": 0.0,
+        "used": 0.0
+      }
+    ],
+    "eastus": [
+      {
+        "name": "OpenAI.S0.AccountCount",
+        "limit": 1.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.Standard.gpt-4",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.Standard.gpt-4-turbo",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-4-turbo-2024-0409",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-4o-finetune",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-4o-finetune",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-4o-mini-finetune",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-4o-mini-finetune",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalBatch.gpt-4",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalBatch.gpt-4-turbo",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalBatch.gpt-4o",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalBatch.gpt-4o-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.Provisioned.gpt-4o-audio-preview",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.Standard.gpt-4o",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.Standard.gpt-4o-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-4o",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-4o-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-4o-mini-audio-preview",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-4o",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-4o-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneBatch.gpt-4o",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneBatch.gpt-4o-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.Standard.gpt-35-turbo",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.Standard.gpt-35-turbo-instruct",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalBatch.gpt-35-turbo",
+        "limit": 50.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalBatch.gpt-4.1-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalBatch.gpt-4.1",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneBatch.gpt-4.1",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalBatch.gpt-4.1-nano",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneBatch.gpt-4.1-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneBatch.gpt-4.1-nano",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5-chat",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5-mini",
+        "limit": 500.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5-nano",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5-nano",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5-pro",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalBatch.gpt-5",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneBatch.gpt-5",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5-codex",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.Standard.gpt-5.1",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.1",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.1",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalBatch.gpt-5.1",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneBatch.gpt-5.1",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.1-chat",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.1-codex-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.1-codex",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.1-codex-max",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.2",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.2",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.2-chat",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.2-codex",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.3-codex",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.3-codex",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.3-chat",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.4-pro",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.4",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.4",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalBatch.gpt-5.4",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneBatch.gpt-5.4",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.4-nano",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.4-nano",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.4-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalBatch.gpt-5.4-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneBatch.gpt-5.4-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.4-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.5",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.5",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-chat-latest",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.6-luna",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.6-terra",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.6-sol",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.6-sol",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.6-terra",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.6-luna",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-6-astra",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-6-astra",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-6-luna",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-6-luna",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-6-sol",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-6-sol",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-6.1-sol",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-6.1-sol",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-chat-latest",
+        "limit": 0.0,
+        "used": 0.0
+      }
+    ],
+    "southeastasia": [
+      {
+        "name": "OpenAI.S0.AccountCount",
+        "limit": 1.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-4o-finetune",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-4o-mini-finetune",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.Provisioned.gpt-4o-audio-preview",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5-chat",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5-mini",
+        "limit": 500.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5-nano",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5-pro",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5-codex",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.1-chat",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.1",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.1-codex",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.1-codex-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.1-codex-max",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.2-chat",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.2",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.2",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.2-codex",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.3-codex",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.3-codex",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.3-chat",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.4",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.4",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.4-pro",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.4-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.4-mini",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.4-nano",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.5",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-chat-latest",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.6-luna",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.6-sol",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-5.6-sol",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-5.6-terra",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-6-astra",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-6-luna",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-6-sol",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.GlobalStandard.gpt-6.1-sol",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-6.1-sol",
+        "limit": 0.0,
+        "used": 0.0
+      },
+      {
+        "name": "OpenAI.DataZoneStandard.gpt-chat-latest",
+        "limit": 0.0,
+        "used": 0.0
+      }
+    ]
+  },
+  "resources_created": false,
+  "conclusion": "Synchronous GPT-5 mini quota exists in Southeast Asia and East US, but Southeast Asia account creation was denied by subscription region policy. East Asia has no synchronous GPT chat quota."
+}

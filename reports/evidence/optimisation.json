@@ -1,0 +1,10 @@
+{
+  "captured_at": "2026-10-16T08:43:40.591205+00:00",
+  "optimisation": "training cluster min_instances 1 to 0",
+  "before_idle_node_count": 1,
+  "after_idle_node_count": 0,
+  "configured_idle_seconds": 60,
+  "observed_scale_down_seconds": 177.33,
+  "avoided_idle_capacity_thb_per_hour": 7.177630264097074,
+  "limitation": "Observed node removal times verified retail price; actual invoice savings are pending billing."
+}

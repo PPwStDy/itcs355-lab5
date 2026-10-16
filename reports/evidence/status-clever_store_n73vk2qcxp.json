@@ -1,0 +1,27 @@
+{
+  "name": "clever_store_n73vk2qcxp",
+  "status": "Failed",
+  "studio_url": "https://ml.azure.com/runs/clever_store_n73vk2qcxp?wsid=/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourcegroups/itcs355-6688218/workspaces/itcs355-6688218&tid=9bc585f9-a8b8-431c-9013-efa7b2b40cdf",
+  "children": [
+    {
+      "name": "329b994b-f149-4ab8-a171-14ff7981dde5",
+      "status": "Completed",
+      "display_name": "ingest"
+    },
+    {
+      "name": "192b763f-f530-4d2c-9aa0-c90cf72be17c",
+      "status": "Completed",
+      "display_name": "validate"
+    },
+    {
+      "name": "b2087e6c-4879-4e22-b942-d45a3710590b",
+      "status": "Completed",
+      "display_name": "train"
+    },
+    {
+      "name": "c480b8ec-9171-4525-a136-692fe2513897",
+      "status": "Failed",
+      "display_name": "evaluate"
+    }
+  ]
+}

@@ -22,6 +22,12 @@ def generate(system, inputs, max_output_tokens):
         temperature=0,
         response_format={"type": "json_object"},
     )
+    reasoning_effort = os.environ.get("LLM_REASONING_EFFORT")
+    if reasoning_effort:
+        # Reasoning chat models include hidden reasoning in this completion cap.
+        payload["max_completion_tokens"] = payload.pop("max_tokens")
+        payload.pop("temperature")
+        payload["reasoning_effort"] = reasoning_effort
     if os.environ.get("LLM_MODEL"):
         payload["model"] = os.environ["LLM_MODEL"]
     header = os.environ.get("LLM_AUTH_HEADER", "api-key")
@@ -55,4 +61,6 @@ def generate(system, inputs, max_output_tokens):
         provenance="provider_response",
         prompt_sha256=hashlib.sha256(system.encode()).hexdigest(),
         max_output_tokens=max_output_tokens,
+        reasoning_effort=reasoning_effort,
+        finish_reason=body["choices"][0].get("finish_reason"),
     )

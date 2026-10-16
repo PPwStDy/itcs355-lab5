@@ -1,0 +1,17 @@
+[
+  {
+    "name": "sys.regionrestriction",
+    "display_name": "Allowed resource deployment regions",
+    "parameters": {
+      "listOfAllowedLocations": {
+        "value": [
+          "indonesiacentral",
+          "japanwest",
+          "eastasia",
+          "koreacentral",
+          "malaysiawest"
+        ]
+      }
+    }
+  }
+]

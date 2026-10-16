@@ -1,0 +1,5 @@
+{
+  "compute": "lab5-cpu",
+  "environment": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourceGroups/itcs355-6688218/providers/Microsoft.MachineLearningServices/workspaces/itcs355-6688218/environments/itcs355-lab5/versions/c3b7231",
+  "at": "2026-10-16T08:05:11.760456+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "url": "https://prices.azure.com/api/retail/prices?%24filter=contains%28meterName%2C+%27gpt-5-mini%27%29",
+  "response": {
+    "BillingCurrency": "USD",
+    "CustomerEntityId": "Default",
+    "CustomerEntityType": "Retail",
+    "Items": [],
+    "NextPageLink": null,
+    "Count": 0
+  }
+}

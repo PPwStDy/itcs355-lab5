@@ -1,0 +1,26 @@
+{
+  "name": "placid_crayon_y037ck5gl0",
+  "status": "Failed",
+  "children": [
+    {
+      "name": "109ae248-3ad0-4705-8cb3-a469084ab560",
+      "status": "Completed",
+      "display_name": "ingest"
+    },
+    {
+      "name": "d1b6e0d0-279d-40b5-81b2-e4629e99cefd",
+      "status": "Completed",
+      "display_name": "validate"
+    },
+    {
+      "name": "e470185a-b9af-41d4-8eba-c03fb7424eec",
+      "status": "Completed",
+      "display_name": "train"
+    },
+    {
+      "name": "ff26f2f4-6e60-4b32-a645-9993de89dc77",
+      "status": "Failed",
+      "display_name": "evaluate"
+    }
+  ]
+}

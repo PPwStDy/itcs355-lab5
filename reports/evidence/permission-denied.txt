@@ -1,0 +1,1 @@
+{"operation": "list staging endpoints", "status": 403, "error_code": "AuthorizationFailed", "identity": "lab5-training", "expected": "denied after removing workspace Reader"}

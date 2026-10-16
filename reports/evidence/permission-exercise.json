@@ -1,0 +1,7 @@
+{
+  "job": "sharp_tiger_8v16syprpk",
+  "removed_assignment_id": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourceGroups/itcs355-6688218/providers/Microsoft.MachineLearningServices/workspaces/itcs355-6688218/providers/Microsoft.Authorization/roleAssignments/e03df724-66df-4aa5-958b-0ea4252acc19",
+  "expected_status": 403,
+  "restored": true,
+  "restored_assignment_id": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourceGroups/itcs355-6688218/providers/Microsoft.MachineLearningServices/workspaces/itcs355-6688218/providers/Microsoft.Authorization/roleAssignments/b0091272-e085-4dc3-8fba-624272247e3b"
+}

@@ -256,6 +256,16 @@ def inventory():
         "-o",
         "json",
     )
+    result["active_jobs"] = [
+        dict(name=j.name, status=j.status)
+        for j in ml.jobs.list()
+        if all((j.tags or {}).get(k) == v for k, v in TAGS.items())
+        and j.status not in {"Completed", "Failed", "Canceled"}
+    ]
+    result["llm_accounts"] = az(
+        "cognitiveservices", "account", "list", "-g", RG, "--query",
+        "[?tags.lab=='5' && tags.course=='itcs355'].{id:id,name:name}", "-o", "json"
+    )
     save(
         "resource-inventory.json",
         dict(captured_at=datetime.now(timezone.utc).isoformat(), **result),

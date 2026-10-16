@@ -1,0 +1,26 @@
+{
+  "name": "dynamic_ship_1cvl5yllf7",
+  "status": "Failed",
+  "children": [
+    {
+      "name": "6de9e081-850d-4ccc-8670-8d2e488ef47e",
+      "status": "Completed",
+      "display_name": "ingest"
+    },
+    {
+      "name": "37f6342d-8507-4986-a421-153342a78376",
+      "status": "Completed",
+      "display_name": "validate"
+    },
+    {
+      "name": "0fd01aba-1e53-48fa-953b-bbd353b5a59d",
+      "status": "Completed",
+      "display_name": "train"
+    },
+    {
+      "name": "7e4e0705-f1e2-41fa-b987-f96e5f5df5bb",
+      "status": "Failed",
+      "display_name": "evaluate"
+    }
+  ]
+}

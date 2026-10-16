@@ -2,6 +2,7 @@
 
 import json
 import os
+import sys
 from azure.ai.ml import MLClient
 from azure.identity import ManagedIdentityCredential
 from azure.core.exceptions import HttpResponseError
@@ -15,6 +16,8 @@ client = MLClient(
 try:
     list(client.online_endpoints.list())
 except HttpResponseError as error:
+    if "--expect-allowed" in sys.argv:
+        raise
     print(
         json.dumps(
             dict(
@@ -31,6 +34,10 @@ except HttpResponseError as error:
     if error.status_code != 403:
         raise
 else:
-    raise RuntimeError(
-        "Workspace read still allowed; removal has not propagated or another grant exists"
-    )
+    if "--expect-allowed" in sys.argv:
+        print(json.dumps(dict(operation="list staging endpoints", allowed=True,
+                              identity="lab5-training")))
+    else:
+        raise RuntimeError(
+            "Workspace read still allowed; removal has not propagated or another grant exists"
+        )

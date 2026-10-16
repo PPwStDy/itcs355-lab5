@@ -1,0 +1,9 @@
+{
+  "resource": "lab5-llm-6688218",
+  "region": "southeastasia",
+  "code": "RequestDisallowedByAzure",
+  "message": "This policy maintains a set of best available regions where your subscription can deploy resources. Contact support for additional regions.",
+  "quota_available": true,
+  "resource_created": false,
+  "paid_model_created": false
+}

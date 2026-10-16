@@ -1,0 +1,164 @@
+[
+  {
+    "description": null,
+    "kind": "OpenAI",
+    "model": {
+      "baseModel": null,
+      "callRateLimit": null,
+      "capabilities": {
+        "agentsV2": "true",
+        "assistants": "true",
+        "chatCompletion": "true",
+        "responses": "true"
+      },
+      "deprecation": {
+        "deprecationStatus": null,
+        "fineTune": null,
+        "inference": "2027-02-09T00:00:00Z"
+      },
+      "finetuneCapabilities": null,
+      "format": "OpenAI",
+      "isDefaultVersion": true,
+      "lifecycleStatus": "GenerallyAvailable",
+      "maxCapacity": 3,
+      "modelCatalogAssetId": "azureml://registries/azure-openai/models/gpt-5-mini/versions/2025-08-07",
+      "name": "gpt-5-mini",
+      "publisher": null,
+      "replacementConfig": null,
+      "skus": [
+        {
+          "capacity": {
+            "allowedValues": null,
+            "default": 10,
+            "maximum": 1000000,
+            "minimum": null,
+            "step": null
+          },
+          "cost": null,
+          "deprecationDate": "2027-02-09T00:00:00+00:00",
+          "name": "GlobalStandard",
+          "rateLimits": [
+            {
+              "count": 1.0,
+              "renewalPeriod": 60.0,
+              "rules": null
+            },
+            {
+              "count": 1000.0,
+              "renewalPeriod": 60.0,
+              "rules": null
+            }
+          ],
+          "usageName": "OpenAI.GlobalStandard.gpt-5-mini"
+        },
+        {
+          "capacity": {
+            "allowedValues": null,
+            "default": null,
+            "maximum": 30000,
+            "minimum": 15,
+            "step": 5
+          },
+          "cost": null,
+          "deprecationDate": "2027-02-09T00:00:00+00:00",
+          "name": "GlobalProvisionedManaged",
+          "rateLimits": null,
+          "usageName": "OpenAI.GlobalProvisionedManaged"
+        }
+      ],
+      "source": null,
+      "sourceAccount": null,
+      "systemData": {
+        "createdAt": "2025-08-07T00:00:00+00:00",
+        "createdBy": "Microsoft",
+        "createdByType": "Application",
+        "lastModifiedAt": "2025-08-07T00:00:00+00:00",
+        "lastModifiedBy": "Microsoft",
+        "lastModifiedByType": "Application"
+      },
+      "version": "2025-08-07"
+    },
+    "skuName": "S0"
+  },
+  {
+    "description": null,
+    "kind": "AIServices",
+    "model": {
+      "baseModel": null,
+      "callRateLimit": null,
+      "capabilities": {
+        "agentsV2": "true",
+        "assistants": "true",
+        "chatCompletion": "true",
+        "responses": "true"
+      },
+      "deprecation": {
+        "deprecationStatus": null,
+        "fineTune": null,
+        "inference": "2027-02-09T00:00:00Z"
+      },
+      "finetuneCapabilities": null,
+      "format": "OpenAI",
+      "isDefaultVersion": true,
+      "lifecycleStatus": "GenerallyAvailable",
+      "maxCapacity": 3,
+      "modelCatalogAssetId": "azureml://registries/azure-openai/models/gpt-5-mini/versions/2025-08-07",
+      "name": "gpt-5-mini",
+      "publisher": null,
+      "replacementConfig": null,
+      "skus": [
+        {
+          "capacity": {
+            "allowedValues": null,
+            "default": 10,
+            "maximum": 1000000,
+            "minimum": null,
+            "step": null
+          },
+          "cost": null,
+          "deprecationDate": "2027-02-09T00:00:00+00:00",
+          "name": "GlobalStandard",
+          "rateLimits": [
+            {
+              "count": 1.0,
+              "renewalPeriod": 60.0,
+              "rules": null
+            },
+            {
+              "count": 1000.0,
+              "renewalPeriod": 60.0,
+              "rules": null
+            }
+          ],
+          "usageName": "OpenAI.GlobalStandard.gpt-5-mini"
+        },
+        {
+          "capacity": {
+            "allowedValues": null,
+            "default": null,
+            "maximum": 30000,
+            "minimum": 15,
+            "step": 5
+          },
+          "cost": null,
+          "deprecationDate": "2027-02-09T00:00:00+00:00",
+          "name": "GlobalProvisionedManaged",
+          "rateLimits": null,
+          "usageName": "OpenAI.GlobalProvisionedManaged"
+        }
+      ],
+      "source": null,
+      "sourceAccount": null,
+      "systemData": {
+        "createdAt": "2025-08-07T00:00:00+00:00",
+        "createdBy": "Microsoft",
+        "createdByType": "Application",
+        "lastModifiedAt": "2025-08-07T00:00:00+00:00",
+        "lastModifiedBy": "Microsoft",
+        "lastModifiedByType": "Application"
+      },
+      "version": "2025-08-07"
+    },
+    "skuName": "S0"
+  }
+]

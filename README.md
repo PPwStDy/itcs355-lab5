@@ -35,7 +35,8 @@ For subsequent runs, evaluation downloads the model actually attached to the sta
 
 ```sh
 make pipeline               # compile native managed DAG from prepared cloud settings
-make pipeline-submit        # submit the primary provider run
+make pipeline-bootstrap     # explicit first registration only
+make pipeline-submit        # compare against the deployed incumbent
 make pipeline-reject        # submit deliberately rejecting managed run
 ```
 
@@ -105,7 +106,7 @@ python scripts/llm_eval.py --responses reports/evidence/live-capped.jsonl \
   --baseline reports/evidence/live-baseline-eval.json --out reports/evidence/live-capped-eval.json
 ```
 
-Set `LLM_CHAT_URL`, `LLM_API_KEY`, optionally `LLM_MODEL` and `LLM_AUTH_HEADER` outside Git. The student subscription currently has no usable pay-as-you-go Azure OpenAI quota in East Asia; no provisioned model was created. Live model/prompt-change and capped-run evidence therefore remain pending.
+Set `LLM_CHAT_URL`, `LLM_API_KEY`, optionally `LLM_MODEL` and `LLM_AUTH_HEADER` outside Git. East Asia has no synchronous GPT chat quota. The approved Southeast Asia GPT-5 mini alternative was rejected by the subscription’s allowed-region policy before an account was created. See `reports/llm-region-amendment.md` and the captured policy/rejection evidence. Live model/prompt-change and capped-run evidence remain pending.
 
 ## Task 9 — Token accounting
 

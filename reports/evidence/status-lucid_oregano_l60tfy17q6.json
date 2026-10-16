@@ -1,0 +1,32 @@
+{
+  "name": "lucid_oregano_l60tfy17q6",
+  "status": "Failed",
+  "studio_url": "https://ml.azure.com/runs/lucid_oregano_l60tfy17q6?wsid=/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourcegroups/itcs355-6688218/workspaces/itcs355-6688218&tid=9bc585f9-a8b8-431c-9013-efa7b2b40cdf",
+  "children": [
+    {
+      "name": "ec4b57c1-a920-4aa1-81fe-5159fddfc473",
+      "status": "Completed",
+      "display_name": "ingest"
+    },
+    {
+      "name": "358c69f1-0844-4ec1-80d4-082389597605",
+      "status": "Completed",
+      "display_name": "validate"
+    },
+    {
+      "name": "822cae02-5b09-411b-bc66-bf24b58427e1",
+      "status": "Completed",
+      "display_name": "train"
+    },
+    {
+      "name": "34159d55-af75-4a30-8faf-a6198d89b5d3",
+      "status": "Completed",
+      "display_name": "evaluate"
+    },
+    {
+      "name": "afb34fa8-1527-4156-9570-84c02d77fdfc",
+      "status": "Failed",
+      "display_name": "register"
+    }
+  ]
+}

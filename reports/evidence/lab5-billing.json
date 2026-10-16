@@ -1,0 +1,81 @@
+{
+  "captured_at": "2026-10-16T08:25:25.251143+00:00",
+  "source": "Azure Cost Management ActualCost",
+  "query": {
+    "type": "ActualCost",
+    "timeframe": "Custom",
+    "timePeriod": {
+      "from": "2026-10-16T00:00:00Z",
+      "to": "2026-10-18T00:00:00Z"
+    },
+    "dataset": {
+      "granularity": "Daily",
+      "aggregation": {
+        "cost": {
+          "name": "Cost",
+          "function": "Sum"
+        }
+      },
+      "grouping": [
+        {
+          "type": "Dimension",
+          "name": "ResourceId"
+        },
+        {
+          "type": "Dimension",
+          "name": "ResourceType"
+        }
+      ],
+      "filter": {
+        "and": [
+          {
+            "tags": {
+              "name": "course",
+              "operator": "In",
+              "values": [
+                "itcs355"
+              ]
+            }
+          },
+          {
+            "tags": {
+              "name": "lab",
+              "operator": "In",
+              "values": [
+                "5"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "result": {
+    "columns": [
+      {
+        "name": "Cost",
+        "type": "Number"
+      },
+      {
+        "name": "UsageDate",
+        "type": "Number"
+      },
+      {
+        "name": "ResourceId",
+        "type": "String"
+      },
+      {
+        "name": "ResourceType",
+        "type": "String"
+      },
+      {
+        "name": "Currency",
+        "type": "String"
+      }
+    ],
+    "nextLink": null,
+    "rows": []
+  },
+  "status": "pending_provider_billing",
+  "finalized": false
+}

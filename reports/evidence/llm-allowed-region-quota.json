@@ -1,0 +1,16 @@
+{
+  "japanwest": [],
+  "koreacentral": [
+    {
+      "name": "OpenAI.GlobalStandard.gpt-5-mini",
+      "limit": 500.0,
+      "used": 0.0
+    }
+  ],
+  "malaysiawest": {
+    "error": "ERROR: (NoRegisteredProviderFound) No registered resource provider found for location 'malaysiawest' and API version '2026-05-15-preview' for type 'locations/usages'. The supported api-versions are '2023-05-01, 2023-06-01-preview, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview, 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview, 2026-07-01, 2026-07-15-preview, 2026-09-01, 2026-09-15-preview'. The supported locations are 'global, australiaeast, brazilsouth, westus, westus2, westeurope, northeurope, southeastasia, eastasia, westcentralus, southcentralus, eastus, eastus2, canadacentral, japaneast, centralindia, uksouth, japanwest, koreacentral, francecentral, northcentralus, centralus, southafricanorth, uaenorth, swedencentral, switzerlandnorth, switzerlandwest, germanywestcentral, norwayeast, westus3, jioindiawest, qatarcentral, canadaeast, polandcentral, southindia, italynorth, spaincentral, ukwest, jioindiacentral'.\nCode: NoRegisteredProviderFound\nMessage: No registered resource provider found for location 'malaysiawest' and API version '2026-05-15-preview' for type 'locations/usages'. The supported api-versions are '2023-05-01, 2023-06-01-preview, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview, 2025-12-01, 2026-01-15-pr"
+  },
+  "indonesiacentral": {
+    "error": "ERROR: (NoRegisteredProviderFound) No registered resource provider found for location 'indonesiacentral' and API version '2026-05-15-preview' for type 'locations/usages'. The supported api-versions are '2023-05-01, 2023-06-01-preview, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview, 2025-12-01, 2026-01-15-preview, 2026-03-01, 2026-03-15-preview, 2026-05-01, 2026-05-15-preview, 2026-07-01, 2026-07-15-preview, 2026-09-01, 2026-09-15-preview'. The supported locations are 'global, australiaeast, brazilsouth, westus, westus2, westeurope, northeurope, southeastasia, eastasia, westcentralus, southcentralus, eastus, eastus2, canadacentral, japaneast, centralindia, uksouth, japanwest, koreacentral, francecentral, northcentralus, centralus, southafricanorth, uaenorth, swedencentral, switzerlandnorth, switzerlandwest, germanywestcentral, norwayeast, westus3, jioindiawest, qatarcentral, canadaeast, polandcentral, southindia, italynorth, spaincentral, ukwest, jioindiacentral'.\nCode: NoRegisteredProviderFound\nMessage: No registered resource provider found for location 'indonesiacentral' and API version '2026-05-15-preview' for type 'locations/usages'. The supported api-versions are '2023-05-01, 2023-06-01-preview, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview, 2025-12-01, 2026-"
+  }
+}

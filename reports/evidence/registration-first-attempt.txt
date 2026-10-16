@@ -1,0 +1,69 @@
+
+[32mUploading registered_artifact (2.59 MBs):   0%|          | 0/2585065 [00:00<?, ?it/s]
+[32mUploading registered_artifact (2.59 MBs): 100%|██████████| 2585065/2585065 [00:00<00:00, 30000770.51it/s]
+[39m
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/azureml/cr/j/de313380c3244382b7640e976ed6415b/exe/wd/cloudlayer/lab5_runtime.py", line 189, in <module>
+    main()
+  File "/mnt/azureml/cr/j/de313380c3244382b7640e976ed6415b/exe/wd/cloudlayer/lab5_runtime.py", line 99, in main
+    asset = client().models.create_or_update(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/azure/ai/ml/_telemetry/activity.py", line 288, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/azure/ai/ml/operations/_model_operations.py", line 296, in create_or_update
+    raise ex
+  File "/usr/local/lib/python3.12/site-packages/azure/ai/ml/operations/_model_operations.py", line 284, in create_or_update
+    raise e
+  File "/usr/local/lib/python3.12/site-packages/azure/ai/ml/operations/_model_operations.py", line 263, in create_or_update
+    else self._model_versions_operation.create_or_update(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/azure/core/tracing/decorator.py", line 119, in wrapper_use_tracer
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/azure/ai/ml/_restclient/v2023_08_01_preview/operations/_model_versions_operations.py", line 650, in create_or_update
+    raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+azure.core.exceptions.HttpResponseError: (UserError) Model version must be a positive integer.
+Code: UserError
+Message: Model version must be a positive integer.
+Target: version
+Additional Information:Type: ComponentName
+Info: {
+    "value": "managementfrontend"
+}Type: Correlation
+Info: {
+    "value": {
+        "operation": "67aa1d803dad5640a2a6179dca77c3aa",
+        "request": "4b58d8a3632c6ff6"
+    }
+}Type: Environment
+Info: {
+    "value": "eastasia"
+}Type: Location
+Info: {
+    "value": "eastasia"
+}Type: Time
+Info: {
+    "value": "2026-10-16T08:16:27.0182686+00:00"
+}Type: InnerError
+Info: {
+    "value": {
+        "code": "BadArgument",
+        "innerError": {
+            "code": "ArgumentOutOfRange",
+            "innerError": {
+                "code": "ModelVersionOutOfRange",
+                "innerError": null
+            }
+        }
+    }
+}Type: MessageFormat
+Info: {
+    "value": "Model version must be a positive integer."
+}Type: MessageParameters
+Info: {
+    "value": {}
+}
