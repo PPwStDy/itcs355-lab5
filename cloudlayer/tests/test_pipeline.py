@@ -19,3 +19,13 @@ def test_native_pipeline_has_real_dependencies_and_scoped_identities():
     assert job.jobs["train"].identity.client_id == cfg["training_client_id"]
     assert job.jobs["register"].identity.client_id == cfg["ci_client_id"]
     assert job.settings.continue_on_step_failure is False
+
+
+def test_model_version_satisfies_azure_integer_constraint():
+    from cloudlayer.lab5_runtime import model_version
+
+    for run_id in ("pipeline-child-uuid", "run_with_underscores", "manual"):
+        version = model_version(run_id)
+        assert version.isdecimal() and 0 < int(version) < 2**31
+        assert model_version(run_id) == version
+    assert model_version("a") != model_version("b")

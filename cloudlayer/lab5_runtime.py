@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 import argparse
+import hashlib
 import json
 import os
 import shutil
@@ -14,6 +15,11 @@ from sklearn.metrics import roc_auc_score
 from src import contracts, data
 from src.gate import evaluate
 from src.workflow import train
+
+
+def model_version(run_id):
+    # Azure ML accepts positive integer versions, not arbitrary job IDs.
+    return str(int(hashlib.sha256(run_id.encode()).hexdigest()[:7], 16) + 1)
 
 
 def client():
@@ -95,7 +101,7 @@ def main():
         artifact = args.out / "registered_artifact"
         artifact.mkdir(exist_ok=True)
         shutil.copyfile(args.out / "model.joblib", artifact / "model.joblib")
-        version = os.environ.get("AZUREML_RUN_ID", "manual").replace("_", "-")
+        version = model_version(os.environ.get("AZUREML_RUN_ID", "manual"))
         asset = client().models.create_or_update(
             Model(
                 name="itcs355-lab5",

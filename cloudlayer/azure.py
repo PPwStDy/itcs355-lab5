@@ -171,7 +171,7 @@ class AzureAdapter(CloudAdapter):
             if status in terminal_states:
                 return job_data
             time.sleep(10)
-    
+
     # register_model                    -> Lab 2 (Azure ML Model Registry)
     def register_model(
         self,

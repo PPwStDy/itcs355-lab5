@@ -49,3 +49,5 @@ reports/**/training-checkpoint.joblib
 reports/**/training-checkpoint.tmp
 reports/*.yml
 infra/main.json
+
+reports/evidence/permission-logs/
