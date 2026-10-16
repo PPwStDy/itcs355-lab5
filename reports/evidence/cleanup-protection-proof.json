@@ -1,0 +1,30 @@
+{
+  "captured_at": "2026-10-16T13:01:13.725914+00:00",
+  "shared_compute": {
+    "name": "cpu-cluster",
+    "state": "Succeeded",
+    "min_instances": 0
+  },
+  "shared_resources": [
+    {
+      "id": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourceGroups/itcs355-6688218/providers/Microsoft.Storage/storageAccounts/itcs3556688218",
+      "name": "itcs3556688218",
+      "type": "Microsoft.Storage/storageAccounts"
+    },
+    {
+      "id": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourceGroups/itcs355-6688218/providers/Microsoft.ContainerRegistry/registries/itcs3556688218",
+      "name": "itcs3556688218",
+      "type": "Microsoft.ContainerRegistry/registries"
+    },
+    {
+      "id": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourceGroups/itcs355-6688218/providers/Microsoft.MachineLearningServices/workspaces/itcs355-6688218",
+      "name": "itcs355-6688218",
+      "type": "Microsoft.MachineLearningServices/workspaces"
+    }
+  ],
+  "restricted_manifest_grant": {
+    "id": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourceGroups/itcs355-6688218/providers/Microsoft.Storage/storageAccounts/itcs3556688218/blobServices/default/containers/azureml/providers/Microsoft.Authorization/roleAssignments/640f079f-876e-40f4-9ee4-b1b02ef19261",
+    "deleted": true,
+    "verification_error": "ERROR: Not Found({\"error\":{\"code\":\"RoleAssignmentNotFound\",\"message\":\"The role assignment '640f079f-876e-40f4-9ee4-b1b02ef19261' is not found.\"}})"
+  }
+}

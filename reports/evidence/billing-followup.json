@@ -1,0 +1,10 @@
+{
+  "automation_id": "lab-5-next-day-billing-recheck",
+  "status": "ACTIVE",
+  "created_at": "2026-10-16T13:03:17.387000+00:00",
+  "interval_hours": 24,
+  "stop_after_first_attempt": true,
+  "read_only_cloud_operations": true,
+  "paid_model_calls": false,
+  "local_desktop_required": true
+}

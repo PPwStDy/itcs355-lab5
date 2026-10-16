@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 import json
+import math
 import tempfile
 import time
 import urllib.request
@@ -42,6 +43,14 @@ def main():
             stages=[dict(name=x.display_name, status=x.status, job=x.name) for x in children],
             outputs=outputs,
         ),
+    )
+    save(
+        "managed-run.json",
+        {
+            **record,
+            "submission_status": record.get("submission_status", record["status"]),
+            "status": run.status,
+        },
     )
     ep = ml.online_endpoints.get("itcs355-lab5-staging")
     key = ml.online_endpoints.get_keys(ep.name).primary_key
@@ -85,7 +94,8 @@ def main():
         measured_requests_seconds=elapsed,
         sample_latencies_ms=[round(value * 1000, 4) for value in latencies],
         latency_p50_ms=median(latencies) * 1000,
-        latency_p95_ms=sorted(latencies)[int(0.95 * (len(latencies) - 1))] * 1000,
+        latency_p95_ms=sorted(latencies)[math.ceil(0.95 * len(latencies)) - 1] * 1000,
+        percentile_method="nearest-rank p95; median p50",
         model_version=responses[-1]["model_version"],
         response=responses[-1],
         hourly_thb=hourly,

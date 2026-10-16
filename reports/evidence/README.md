@@ -19,4 +19,8 @@ Live LLM evidence is captured separately from authored fixtures. live-baseline.j
 
 The exact Microsoft retail token meters are in llm-price-query.json. All 60 successful calls cost 0.3922373697 THB using provider-reported usage, with four rate-limit retries. The capped run did not reduce observed cost; live-v2-token-summary.json retains that result. All cache counters were zero. The temporary Korea Central LLM account and deployment were removed; llm-cleanup.json verifies no active account remains. The earlier Southeast Asia policy rejection remains in separate evidence.
 
-Still required before claiming full completion: end-to-end managed success and endpoint measurements; final Lab 5 billing/allocation; final provider-console teardown screenshot and empty inventory; a real second-provider round trip/invocation. AWS/GCP access has not been established.
+The full managed run stoic_river_3l9pd2rtlf completed all six stages. managed-success.json retains the actual stage IDs, gate, metrics, code lineage and registered/deployed model. managed-pipeline-completed.jpg is the actual Azure ML console graph. endpoint-benchmark.json contains 25 actual measured request latencies after five warm-ups, with the expected model on every response. The successful initializer logs prove the manifest-only conditional reader resolved startup; no account-wide reader was granted.
+
+Still required before claiming full completion: final Lab 5 billing/allocation; a real second-provider round trip/invocation. AWS/GCP access has not been established.
+
+Teardown completed and an independent read-only check returned empty Lab 5 endpoints, computes, schedules, identities, active_jobs and llm_accounts. cleanup-protection-proof.json confirms the exact conditional manifest grant returns RoleAssignmentNotFound and the existing workspace, storage, registry and shared zero-node cluster remain. The next-day read-only follow-up is recorded in billing-followup.json.

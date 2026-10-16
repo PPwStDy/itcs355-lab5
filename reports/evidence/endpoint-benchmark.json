@@ -1,0 +1,51 @@
+{
+  "captured_at": "2026-10-16T12:48:11.537547+00:00",
+  "samples": 25,
+  "warmup": 5,
+  "concurrency": 1,
+  "observed_rps": 2.740050741576103,
+  "measured_requests_seconds": 9.12391862700315,
+  "sample_latencies_ms": [
+    399.2542,
+    332.305,
+    371.2363,
+    346.9306,
+    332.3453,
+    370.392,
+    462.6811,
+    404.0884,
+    334.9693,
+    373.8677,
+    468.9492,
+    396.1783,
+    333.7858,
+    362.5711,
+    352.8542,
+    333.4291,
+    359.5964,
+    356.2199,
+    330.4999,
+    365.0324,
+    352.6923,
+    332.076,
+    347.9996,
+    367.3583,
+    336.6063
+  ],
+  "latency_p50_ms": 356.219916997361,
+  "latency_p95_ms": 462.6811,
+  "model_version": "53690577",
+  "response": {
+    "probability": 0.008443148980236426,
+    "model_version": "53690577"
+  },
+  "hourly_thb": 7.177630264097074,
+  "cost_per_1000_by_utilisation": {
+    "5": 14.552914325408185,
+    "25": 2.9105828650816368,
+    "80": 0.9095571453380116
+  },
+  "limitation": "Sequential client-observed throughput, not a saturation capacity test; scenario costs assume this nominal throughput.",
+  "percentile_method": "nearest-rank p95; median p50",
+  "analysis_note": "p95 recomputed from retained measured latencies using nearest rank"
+}

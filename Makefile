@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 PYTHON ?= python
-.PHONY: data test lint portability-audit pipeline pipeline-submit pipeline-local pipeline-reject pipeline-reject-local llm-eval llm-gate guardrail cost-report swap-check teardown teardown-verify billing
+.PHONY: data test lint portability-audit pipeline pipeline-submit pipeline-bootstrap pipeline-local pipeline-reject pipeline-reject-local llm-eval llm-gate guardrail cost-report swap-check teardown teardown-verify billing
 
 data:
 	$(PYTHON) scripts/make_dataset.py
@@ -9,7 +9,7 @@ test: data
 	$(PYTHON) -m pytest -q tests cloudlayer/tests
 
 lint:
-	$(PYTHON) -m ruff check src/ service/ monitoring/ scripts/ tests/
+	$(PYTHON) -m ruff check src/ service/ monitoring/ scripts/ tests/ cloudlayer/
 
 portability-audit:
 	$(PYTHON) scripts/portability_audit.py

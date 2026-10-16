@@ -4,6 +4,10 @@ This is a separate Lab5 folder and Git repository. It builds on the sensor-maint
 
 The primary provider is Azure in East Asia. Managed run links and captured results live in [reports/evidence](reports/evidence/README.md). Offline simulation, authored LLM fixtures and SDK transport tests are labelled explicitly; they do not prove a cloud run, a second cloud account or provider token usage.
 
+The actual six-stage Azure run `stoic_river_3l9pd2rtlf` completed, with validation ROC AUC 0.8572 and test ROC AUC 0.8390. Its captured lineage records code commit `2a62c3f`; subsequent local hardening moved legacy tutorial price data into configuration and strengthened the audit. The endpoint returned the expected registered model on all 25 measured predictions. See [managed evidence](reports/evidence/managed-success.json), [pipeline screenshot](reports/evidence/managed-pipeline-completed.jpg) and [latency/cost measurements](reports/evidence/endpoint-benchmark.json).
+
+See the [submission status and remaining requirements](reports/submission-status.md).
+
 ## Reproduce local checks
 
 ```sh
@@ -89,7 +93,9 @@ make teardown
 make teardown-verify         # read-only; checks without deleting
 ```
 
-Only the recorded Lab 5 resources and their scoped role grants are removed. Shared registry, workspace, storage and the pre-existing `cpu-cluster` remain in place. Verification lists endpoints, computes, schedules and identities; it must return empty for Lab 5. Completed experiment history and small versioned artifacts may remain for reproducibility, with shared storage allocation disclosed in the bill. Recheck the console and delayed billing after 24 hours. The provider-console screenshot and final inventory are retained under reports/evidence when cleanup completes.
+Only the recorded Lab 5 resources and their scoped role grants are removed. Shared registry, workspace, storage and the pre-existing `cpu-cluster` remain in place. Verification lists endpoints, computes, schedules and identities; it must return empty for Lab 5. Completed experiment history and small versioned artifacts may remain for reproducibility, with shared storage allocation disclosed in the bill. The independent post-cleanup inventory is empty for endpoints, computes, schedules, identities, active jobs and LLM accounts. The exact manifest grant was confirmed deleted. Console screenshots and the inventory are retained in reports/evidence. A next-day read-only billing/cleanup follow-up is scheduled and will pause after its first attempt. Keep this computer awake with Codex running for the local follow-up.
+
+The provider console was also checked directly: no real-time endpoints or schedules remained, and the Lab 5 compute search returned no results while the shared cluster remained at zero nodes. [Empty Lab 5 resource screenshot](reports/evidence/azure-resources-after.jpg), [empty compute search](reports/evidence/azureml-compute-after.jpg), [empty endpoint view](reports/evidence/azureml-endpoints-after.jpg), [empty schedules view](reports/evidence/azureml-schedules-after.jpg), and [verification receipt](reports/evidence/console-verification.json) are retained for submission.
 
 ## Tasks 7–8 — Golden set and guardrail
 

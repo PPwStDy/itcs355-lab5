@@ -1,0 +1,23 @@
+{
+  "captured_at": "2026-10-16T13:05:55.935166+00:00",
+  "azure_resource_filter": {
+    "search": "lab5",
+    "subscription": "Azure for Students",
+    "displayed": 0,
+    "screenshot": "azure-resources-after.jpg"
+  },
+  "azure_ml": {
+    "real_time_endpoints": "empty onboarding view",
+    "schedules": "empty onboarding view",
+    "compute_filter": "lab5: No results found",
+    "shared_compute": "cpu-cluster: Succeeded (0 nodes)",
+    "pipeline_history": "seven terminal runs: one Completed, six Failed; no active pipeline"
+  },
+  "screenshots": [
+    "azureml-endpoints-after.jpg",
+    "azureml-schedules-after.jpg",
+    "azureml-compute-after.jpg",
+    "azureml-shared-compute-preserved.jpg",
+    "azureml-pipelines-after.jpg"
+  ]
+}

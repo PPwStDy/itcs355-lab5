@@ -4,8 +4,9 @@ Prices change and differ by region, so these are STARTING VALUES you must verify
 your provider's calculator. Verifying them is part of Lab 2; citing a stale number without
 checking is the kind of thing the cost report is designed to catch.
 
-Rates are THB per hour, on-demand. Discounted (spot / low-priority / preemptible) compute
-is roughly 30% of on-demand across all three providers — SPOT_FACTOR below.
+Legacy lookup rates are THB per hour. SPOT_FACTOR is a tutorial assumption,
+not a verified current discount. Lab 5 accounting uses captured regional retail prices
+and actual usage receipts instead of this legacy tuning lookup.
 """
 
 from __future__ import annotations

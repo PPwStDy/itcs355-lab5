@@ -1,0 +1,37 @@
+{
+  "name": "stoic_river_3l9pd2rtlf",
+  "status": "Completed",
+  "studio_url": "https://ml.azure.com/runs/stoic_river_3l9pd2rtlf?wsid=/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourcegroups/itcs355-6688218/workspaces/itcs355-6688218&tid=9bc585f9-a8b8-431c-9013-efa7b2b40cdf",
+  "children": [
+    {
+      "name": "be888f8c-dd70-43e5-bd7c-bf601535425e",
+      "status": "Completed",
+      "display_name": "ingest"
+    },
+    {
+      "name": "d1f84434-c811-4805-8d41-79185c1fa148",
+      "status": "Completed",
+      "display_name": "validate"
+    },
+    {
+      "name": "81b8a43c-5101-4a12-8283-6fe52832fadf",
+      "status": "Completed",
+      "display_name": "train"
+    },
+    {
+      "name": "b37f294b-8f0c-4d28-a118-f74b5f312754",
+      "status": "Completed",
+      "display_name": "evaluate"
+    },
+    {
+      "name": "0b965ad9-166d-4639-a3d6-e2a2a317dc74",
+      "status": "Completed",
+      "display_name": "register"
+    },
+    {
+      "name": "4900b024-38f9-44f1-8fa3-92ee26308bda",
+      "status": "Completed",
+      "display_name": "deploy_staging"
+    }
+  ]
+}

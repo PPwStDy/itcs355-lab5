@@ -4,16 +4,35 @@
 39.42 THB, calculated and committed before the managed pipeline in commit c3b7231. The exact price inputs, exchange rate, runtime allowances and contingency are in pre-run-estimate.md and evidence/planning-prices.json. The spending ceiling is 150 THB, subject to the remaining 800 THB course allowance.
 
 ## 2. Actual from billing
-Not yet final. Azure bills arrive after activity; no empty or unavailable query will be reported as zero actual cost. The pre-run course-tag query returned USD 6.95145721947742, approximately 233.15 THB at the captured ECB rate, before this lab. This is prior term spend, not Lab 5's bill.
+Not yet final. Azure bills arrive after activity; no empty or unavailable query will be reported as zero actual cost. The pre-run course-tag query returned USD 6.95145721947742, approximately 233.15 THB at the captured ECB rate, before this lab. This is prior term spend, not Lab 5's bill. The post-cleanup query at 2026-10-16 13:04 UTC succeeded with no published Lab 5 rows. A prior transient 429 is retained separately. The next-day read-only recheck is scheduled; the invoice total and shared allocation remain pending.
 
 ## 3. Gap
-Pending the Lab 5 bill. The estimate allows one training VM-hour, two serving VM-hours, a 10 THB overhead/LLM allowance and 25% contingency. Shorter active runtime or delayed deletion will move the result in opposite directions. Shared workspace storage and registry spend need explicit allocation rather than relabelling an existing shared resource as Lab 5.
+Pending the Lab 5 bill. The estimate allows one training VM-hour, two serving VM-hours, a 10 THB overhead/LLM allowance and 25% contingency. Shorter active runtime or delayed deletion will move the result in opposite directions. Shared workspace storage and registry spend need explicit allocation rather than relabelling an existing shared resource as Lab 5. Actual execution included failed startup attempts, identity propagation and model-deployment retries, so billed VM and waiting time must be reconciled rather than replaced with only the successful pipeline's 11m40s duration.
 
 ## 4. Component accounting
 Training, storage, serving, pipeline, monitoring and LLM will be recorded individually. Azure ML runtime and endpoint resources carry course=itcs355, lab=5. Shared storage/registry costs must be attributed separately with the stated allocation basis. Billing retrieval and classification evidence is required before reporting a total.
 
+| Component | Allocation / evidence basis | Current amount |
+|---|---|---|
+| Training | Lab 5 cluster VM meters, including preparation and idle intervals | Invoice pending |
+| Serving | Lab 5 endpoint VM meters through verified deletion | Invoice pending |
+| Pipeline | Any distinct orchestration meter; do not double-count training VM charges | Invoice pending |
+| Storage and registry | Shared billed meters, allocated using Lab 5 artifact/image bytes and retention/build intervals; no allocation fabricated yet | Invoice/allocation pending |
+| Monitoring | Billed telemetry ingestion/retention attributable to Lab 5 | Invoice/allocation pending |
+| LLM | 60 provider receipts at verified token retail rates | 0.3922373697 THB token accounting; invoice pending |
+
 ## 5. Cost per 1,000 predictions
-The scenario calculator covers 5%, 25% and 80% utilisation. The formula is hourly_THB × 1,000 / (3,600 × measured_capacity_RPS × utilisation). No measured cloud throughput is available yet, so no numerical cloud prediction cost is claimed.
+The live endpoint returned the correct registered model version on all 25 measured requests after five warm-ups. Sequential client-observed throughput was 2.7401 requests/second over 9.1239 measured seconds; median latency was 356.22 ms and nearest-rank p95 was 462.68 ms. This small, single-client test is not a saturation-capacity measurement.
+
+At 7.1776 THB per serving instance-hour, scenario cost = hourly_THB × 1,000 / (3,600 × observed_RPS × utilisation). These scenarios assume the measured sequential rate as nominal capacity, so they are illustrative rather than a production capacity promise.
+
+| Assumed utilisation | THB per 1,000 predictions |
+|---|---:|
+| 5% | 14.5529 |
+| 25% | 2.9106 |
+| 80% | 0.9096 |
+
+Raw measured latencies, the response/model version, price/FX inputs and arithmetic are retained in evidence/endpoint-benchmark.json. This is serving compute pricing; storage, monitoring and registry allocation remain pending the bill.
 
 ## 6. Applied optimisation
 Applied and observed: the isolated training cluster changed from min_instances=1 to 0, max_instances=1, with a 60-second idle timer. The actual node list changed from one idle node to zero in 177.33 seconds. At the verified East Asia DS2_v2 price and captured FX, this removes 7.1776 THB/hour of idle VM capacity while no work is scheduled. See evidence/optimisation.json. This is a measured resource reduction priced at retail; invoice savings remain pending. Subsequent work can scale the cluster up again, and the cluster is deleted at final teardown.

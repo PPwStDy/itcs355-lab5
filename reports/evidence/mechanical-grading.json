@@ -1,7 +1,7 @@
 {
-  "commit": "d40e7e7cd8f164ba770eaf911821ed027537ca71",
+  "commit": "f3859d5ff116d101175f7a5434c19c6567bd1cd1",
   "stdout": "ITCS355 Lab 5 grading \u2014 /Users/peerawatsomsurat/Projects/ML Operation and Deployment /Lab5\n\nCommon\n  [PASS] no credentials in history\n  [PASS] cloud.env not committed\n  [PASS] portability audit clean\n  [PASS] data tests pass\n\nLab 5 \u2014 cloud MLOps, portability, cost\n  [PASS] pipeline spec present\n  [PASS] gate is conditional\n  [PASS] gate rejects a weak model\n  [PASS] cost report exists\n  [PASS] cost report completed\n  [PASS] second adapter attempted\n  [ ?  ] REQUIRED: teardown screenshot showing an empty resource list\n  [ ?  ] which permission did they remove, and what broke?\n  [ ?  ] portability verdict \u2014 a well-argued 'no' earns full marks\n\nmechanical: 10 passed, 0 failed\nitems marked [ ? ] need you \u2014 see instructor/RUBRIC-labs-2-to-5.md\n",
   "stderr": "",
   "return_code": 0,
-  "interpretation": "Official mechanical checks on a fresh local clone; manual criteria including the second-cloud demonstration remain separate."
+  "interpretation": "Official mechanical checks on a fresh local clone; manual cloud, billing and second-provider criteria remain separate."
 }

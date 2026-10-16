@@ -1,0 +1,63 @@
+{
+  "name": "stoic_river_3l9pd2rtlf",
+  "status": "Completed",
+  "stages": [
+    {
+      "name": "ingest",
+      "status": "Completed",
+      "job": "be888f8c-dd70-43e5-bd7c-bf601535425e"
+    },
+    {
+      "name": "validate",
+      "status": "Completed",
+      "job": "d1f84434-c811-4805-8d41-79185c1fa148"
+    },
+    {
+      "name": "train",
+      "status": "Completed",
+      "job": "81b8a43c-5101-4a12-8283-6fe52832fadf"
+    },
+    {
+      "name": "evaluate",
+      "status": "Completed",
+      "job": "b37f294b-8f0c-4d28-a118-f74b5f312754"
+    },
+    {
+      "name": "register",
+      "status": "Completed",
+      "job": "0b965ad9-166d-4639-a3d6-e2a2a317dc74"
+    },
+    {
+      "name": "deploy_staging",
+      "status": "Completed",
+      "job": "4900b024-38f9-44f1-8fa3-92ee26308bda"
+    }
+  ],
+  "outputs": {
+    "metrics.json": {
+      "val_roc_auc": 0.8571673329525986,
+      "test_roc_auc": 0.8390345974890178,
+      "seed": 42,
+      "code_version": "2a62c3fa8cf6228893727a80c3250b4a88753b9c",
+      "data_sha256": "422cccb9136e814061b83e4f041cff21ba7372c6f7fb0feb2c321555c6a6341f",
+      "validation_sha256": "04f404fedc023c1f8477d5a8247e33a9da5d4b036175120eb9dfd37c01ebcb7d",
+      "model_sha256": "733933723b4cccd9a2d3f394c72085bbaece813d8f5b756dd07722975e9be6db"
+    },
+    "gate.json": {
+      "passed": true,
+      "reason": "explicit bootstrap",
+      "candidate": 0.8571673329525986,
+      "incumbent": null,
+      "floor": 0.75,
+      "margin": 0.01
+    },
+    "registered.json": {
+      "id": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourceGroups/itcs355-6688218/providers/Microsoft.MachineLearningServices/workspaces/itcs355-6688218/models/itcs355-lab5/versions/53690577",
+      "version": "53690577"
+    },
+    "deployment.json": {
+      "probability": 0.008443148980236426,
+      "model_version": "53690577"
+    }
+  }
+}

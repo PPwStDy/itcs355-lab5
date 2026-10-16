@@ -9,3 +9,5 @@ Prepared alternative: keep the existing artifact-container grant and add read ac
 Microsoft condition syntax: https://learn.microsoft.com/en-us/azure/storage/blobs/storage-auth-abac-examples .
 
 The user approved the exact manifest-only alternative. It was applied successfully and recorded in serving-manifest-reader.json and identity-assignments.json for teardown.
+
+The retry succeeded with the conditional grant: model download and user-container startup completed, and a targeted invocation returned the expected registered model. Exact logs and response are retained separately.

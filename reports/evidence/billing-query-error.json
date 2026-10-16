@@ -1,0 +1,54 @@
+{
+  "captured_at": "2026-10-16T13:01:09.967288+00:00",
+  "query": {
+    "type": "ActualCost",
+    "timeframe": "Custom",
+    "timePeriod": {
+      "from": "2026-10-16T00:00:00Z",
+      "to": "2026-10-18T00:00:00Z"
+    },
+    "dataset": {
+      "granularity": "Daily",
+      "aggregation": {
+        "cost": {
+          "name": "Cost",
+          "function": "Sum"
+        }
+      },
+      "grouping": [
+        {
+          "type": "Dimension",
+          "name": "ResourceId"
+        },
+        {
+          "type": "Dimension",
+          "name": "ResourceType"
+        }
+      ],
+      "filter": {
+        "and": [
+          {
+            "tags": {
+              "name": "course",
+              "operator": "In",
+              "values": [
+                "itcs355"
+              ]
+            }
+          },
+          {
+            "tags": {
+              "name": "lab",
+              "operator": "In",
+              "values": [
+                "5"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "error": "ERROR: Too Many Requests({\"error\":{\"code\":\"429\",\"message\":\"Too many requests. Please retry.\"}})",
+  "conclusion": "Query unavailable; preserve the prior receipt and do not infer zero cost."
+}

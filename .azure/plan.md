@@ -53,15 +53,16 @@ Offline evaluation, cost arithmetic, tests, documentation and provider-neutral p
 - [x] Commit pre-run estimate before submitting any managed run (c3b7231).
 - [x] Implement/validate provider pipeline, scoped identities and schedule.
 - [x] Run a deliberately failing managed gate; registration and deployment never started.
-- [ ] Complete the accepted six-stage managed run.
+- [x] Complete the accepted six-stage managed run (stoic_river_3l9pd2rtlf; all six stages Completed).
 - [x] Demonstrate revoked permission (actual 403) and restore only that permission.
 - [x] Confirm restored Reader access from a managed job after Azure propagation (funny_cake_2b2kbzz208).
 - [ ] Demonstrate real second-provider upload/download/invoke.
 - [x] Record live LLM usage, capped run, cache observations and current price sources; all LLM calls total 0.3922373697 THB at retail.
-- [ ] Capture billing and console evidence; remove only Lab 5 resources.
+- [x] Remove only Lab 5 resources; independent empty inventory and protected-resource checks passed.
+- [ ] Complete delayed billing reconciliation and shared-resource allocation.
 - [ ] Verify empty lists and delayed billing after 24 hours.
 
-Actual cloud execution is in progress. One idle node was observed scaling to zero in 177.33 seconds; this removes 7.1776 THB/hour of idle retail capacity. Invoice savings and full billing remain pending.
+The full managed run completed with registered model 53690577; all 25 measured endpoint requests returned that model. Teardown completed; an independent read-only inventory is empty and the exact manifest-only grant is confirmed deleted. One idle node was observed scaling to zero in 177.33 seconds; this removes 7.1776 THB/hour of idle retail capacity. Invoice savings and full billing remain pending.
 
 ## 7. Validation proof (azure-validate)
 
@@ -87,3 +88,7 @@ Final local verification after the LLM transport and validation changes: 59 test
 The first staging endpoint failed with SubscriptionNotRegistered after ingest, validate, train, evaluate and register had completed. The failed empty endpoint was removed. Missing Microsoft.Cdn, Microsoft.PolicyInsights, Microsoft.Web, Microsoft.Network and Microsoft.Compute provider registrations were requested; actual before/after states are retained in evidence/endpoint-provider-registration.json. Registration creates no paid resources.
 
 The deployment schema issue was fixed by referencing the model as azureml:itcs355-lab5:<version>. The installed SDK now parses the actual deployment specification in a regression test. Incumbent selection follows the endpoint’s automatic traffic map: zero traffic requires explicit bootstrap and mixed traffic fails without an explicit policy. Full local suite: 63 passed. A gated-model serving preflight runs at zero automatic traffic before the final full DAG rerun.
+
+The serving initializer required a startup manifest in a second shared container. The user approved a temporary conditional reader only for this endpoint's manifest prefix, excluding Blob.List; the grant is recorded for teardown. Account-wide read access was not granted. The updated runtime passed all 63 local tests and lint.
+
+Final provider-console checks: Lab 5 resource search shows 0 of 0; no real-time endpoints or schedules remain; compute search lab5 returns no results. Shared cpu-cluster remains at zero nodes. Actual screenshots and timestamped console-verification.json are retained. The post-cleanup billing retry succeeded with no published rows, and a next-day read-only desktop follow-up is scheduled. Full acceptance still needs real second-provider execution and billing/shared-allocation reconciliation.
