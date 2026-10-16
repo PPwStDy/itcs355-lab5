@@ -1,0 +1,11 @@
+# Portability verdict
+
+The primary platform is Azure. The second-provider adapter implements S3 upload/download and SageMaker endpoint invocation, with independent bucket, region and endpoint settings. Unit tests use an in-memory transport to check byte preservation and prediction response validation; they are not evidence that an AWS account was called. No AWS profile, AWS environment credential pair or GCP application credential file was available on this machine during setup. A real second-provider demonstration remains required.
+
+Invocation was the hardest method: object bytes have clear semantics, while prediction payloads, authentication and output envelopes vary between serving platforms. The adapter returns the same probability/model-version contract and rejects a wrong or incomplete response instead of silently accepting a provider wrapper. The swap probe downloads the exact URI returned by upload and compares bytes, rather than guessing how a provider constructs object paths.
+
+A real leak remains at deployment and identity boundaries. A workspace, a container registry, a model asset and a managed-identity role assignment have no exact cross-provider equivalents. The core training and gating logic can stay portable, but platform operations, image distribution, IAM, scheduling and billing queries need separate implementations. A neutral six-stage DAG describes dependencies; it does not make a managed pipeline portable by itself.
+
+My planning estimate for a full migration of this small service is 4–7 engineering days: one for storage/data paths, one for model and environment registration, one or two for endpoint/IAM/network setup, and one to three for CI, monitoring, cost attribution and failure drills. This is a scope estimate, not measured migration effort. Larger network and compliance requirements would extend it.
+
+The small upload/download/invoke seam is worth retaining because those methods protect core training/inference from vendor response details and can be tested cheaply. Building a universal abstraction for every orchestration, deployment and billing feature is not justified for this single-provider course system. I would deliberately keep those operations platform-specific and document them.

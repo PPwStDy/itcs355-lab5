@@ -1,0 +1,29 @@
+name: itcs355-lab5
+schedule: '0 2 * * 0'
+steps:
+  - name: ingest
+    outputs: [raw_data]
+  - name: validate
+    depends_on: [ingest]
+    on_failure: abort
+    outputs: [validated_data]
+  - name: train
+    depends_on: [validate]
+    outputs: [model, metrics]
+    checkpoint: 'atomic warm-start checkpoint every 50 trees; resume only when data hash and seed match'
+  - name: evaluate
+    depends_on: [train]
+    metric: val_roc_auc
+    absolute_floor: 0.75
+    minimum_improvement: 0.01
+    on_failure: abort
+    outputs: [gate_decision]
+  - name: register
+    depends_on: [evaluate]
+    condition: "gate_decision == 'pass'"
+    lineage: [data_sha256, validation_sha256, model_sha256, seed]
+  - name: deploy_staging
+    depends_on: [register]
+tags:
+  course: itcs355
+  lab: '5'

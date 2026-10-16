@@ -1,0 +1,14 @@
+.git/
+.venv/
+cloud.env
+*.env
+data/
+reports/
+mlruns/
+mlartifacts/
+mlflow.db
+__pycache__/
+course/
+docs/
+instructor/
+.ruff_cache/

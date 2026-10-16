@@ -1,0 +1,4 @@
+azure-identity==1.21.0
+azure-storage-blob==12.25.1
+azure-ai-ml==1.26.3
+boto3==1.38.30

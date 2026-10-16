@@ -40,3 +40,12 @@ reports/azureml-logs*/
 !reports/evidence/*.txt
 *.env
 !cloud.env.example
+
+# Generated local simulations and checkpoints are not submission evidence.
+reports/local-pipeline/
+reports/rejected-pipeline/
+reports/**/model.joblib
+reports/**/training-checkpoint.joblib
+reports/**/training-checkpoint.tmp
+reports/*.yml
+infra/main.json

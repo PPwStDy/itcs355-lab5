@@ -1,0 +1,35 @@
+name: Lab 5 checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt -r requirements-cloud.txt
+      - run: python scripts/make_dataset.py
+      - run: ruff check src/ service/ monitoring/ scripts/ tests/ cloudlayer/tests/
+      - run: python scripts/portability_audit.py
+      - run: pytest -q tests cloudlayer/tests
+      - name: Golden baseline and demonstrated regression
+        run: |
+          python scripts/llm_eval.py
+          set +e
+          python scripts/llm_eval.py --responses evals/fixtures/maintenance-regressed.jsonl --baseline reports/evidence/llm-baseline.json --out reports/evidence/llm-regressed.json
+          result=$?
+          set -e
+          test "$result" -eq 1
+          python scripts/guardrail_demo.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lab5-local-evidence
+          path: reports/evidence/
