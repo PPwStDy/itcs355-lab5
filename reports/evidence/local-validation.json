@@ -1,0 +1,8 @@
+{
+  "tests_passed": 59,
+  "command": ".venv/bin/python -m pytest -q --disable-warnings tests cloudlayer/tests",
+  "portability_audit": "passed",
+  "lint": "passed",
+  "mechanical_grader": "10 passed, 0 failed on fresh clone",
+  "mechanical_commit": "d40e7e7cd8f164ba770eaf911821ed027537ca71"
+}

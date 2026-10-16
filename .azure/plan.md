@@ -83,3 +83,5 @@ Validation timestamp: 2026-10-16T08:03:31.893371+00:00.
 Validated by the azure-validate workflow. Azure CLI/SDK service operations are used; no new workspace, storage account or registry is provisioned. The user approved this subscription, East Asia, spending limits and teardown.
 
 Final local verification after the LLM transport and validation changes: 59 tests passed; lint and portability audit passed. Live golden gate: faulty prompt exited 1 with seven regressions, capped candidate exited 0 with 14/14.
+
+The first staging endpoint failed with SubscriptionNotRegistered after ingest, validate, train, evaluate and register had completed. The failed empty endpoint was removed. Missing Microsoft.Cdn, Microsoft.PolicyInsights, Microsoft.Web, Microsoft.Network and Microsoft.Compute provider registrations were requested; actual before/after states are retained in evidence/endpoint-provider-registration.json. Registration creates no paid resources.

@@ -1,0 +1,8 @@
+{
+  "local_aws_profile_found": false,
+  "local_aws_environment_credential_pair_found": false,
+  "local_gcp_application_default_credentials_found": false,
+  "gcp_console_url": "https://console.cloud.google.com/?pli=1",
+  "gcp_console_observation": "Google Cloud Console has failed to load JavaScript sources from www.gstatic.com.",
+  "conclusion": "No configured second-provider access was established. The browser console could not load, so existing GCP account/project eligibility could not be determined. No second-provider resources were created or called."
+}

@@ -1,0 +1,16 @@
+{
+  "before": {
+    "Microsoft.Cdn": "NotRegistered",
+    "Microsoft.PolicyInsights": "NotRegistered",
+    "Microsoft.Web": "NotRegistered",
+    "Microsoft.Network": "NotRegistered",
+    "Microsoft.Compute": "NotRegistered"
+  },
+  "after": {
+    "Microsoft.Cdn": "Registered",
+    "Microsoft.PolicyInsights": "Registered",
+    "Microsoft.Web": "Registered",
+    "Microsoft.Network": "Registered",
+    "Microsoft.Compute": "Registered"
+  }
+}
