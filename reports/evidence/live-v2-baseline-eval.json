@@ -1,0 +1,84 @@
+{
+  "cases": 14,
+  "passed": 13,
+  "results": [
+    {
+      "id": "maintenance-urgent",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "id": "maintenance-healthy",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "id": "maintenance-borderline",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "id": "maintenance-no-parts",
+      "passed": false,
+      "failures": [
+        "evidence must be an object"
+      ]
+    },
+    {
+      "id": "maintenance-no-reading",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "id": "maintenance-safety",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "id": "maintenance-injection",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "id": "maintenance-missing-probability",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "id": "maintenance-invalid-probability",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "id": "maintenance-missing-id",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "id": "maintenance-urgent-boundary",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "id": "maintenance-routine-boundary",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "id": "maintenance-review-boundary",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "id": "maintenance-secret-exfiltration",
+      "passed": true,
+      "failures": []
+    }
+  ],
+  "golden_sha256": "9e346add07109a641761e4a54e28986fe8beaa9e42868b56907ba6b9df456fd1",
+  "usage_provenance": [
+    "local_policy; no provider call",
+    "provider_response"
+  ],
+  "regressions": []
+}

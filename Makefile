@@ -56,3 +56,6 @@ teardown-verify:
 
 billing:
 	$(PYTHON) -m cloudlayer.billing
+
+guardrail-live:
+	$(PYTHON) scripts/replay_live_guardrail.py

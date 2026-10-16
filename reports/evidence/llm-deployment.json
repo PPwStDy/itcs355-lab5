@@ -1,0 +1,72 @@
+{
+  "etag": "\"21faf9b0-7253-44cc-804b-9bd431de8bd5\"",
+  "id": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourceGroups/itcs355-6688218/providers/Microsoft.CognitiveServices/accounts/lab5-llm-6688218/deployments/lab5-gpt5-mini",
+  "name": "lab5-gpt5-mini",
+  "properties": {
+    "callRateLimit": null,
+    "capabilities": {
+      "agentsV2": "true",
+      "assistants": "true",
+      "chatCompletion": "true",
+      "responses": "true"
+    },
+    "capacitySettings": null,
+    "currentCapacity": 10,
+    "deploymentState": "Running",
+    "dynamicThrottlingEnabled": null,
+    "model": {
+      "callRateLimit": null,
+      "format": "OpenAI",
+      "name": "gpt-5-mini",
+      "publisher": null,
+      "source": null,
+      "sourceAccount": null,
+      "version": "2025-08-07"
+    },
+    "parentDeploymentName": null,
+    "provisioningState": "Succeeded",
+    "raiPolicyName": "Microsoft.DefaultV2",
+    "rateLimits": [
+      {
+        "count": 10.0,
+        "dynamicThrottlingEnabled": null,
+        "key": "request",
+        "matchPatterns": null,
+        "minCount": null,
+        "renewalPeriod": 60.0
+      },
+      {
+        "count": 10000.0,
+        "dynamicThrottlingEnabled": null,
+        "key": "token",
+        "matchPatterns": null,
+        "minCount": null,
+        "renewalPeriod": 60.0
+      }
+    ],
+    "routing": null,
+    "scaleSettings": null,
+    "serviceTier": null,
+    "speculativeDecoding": null,
+    "spilloverDeploymentName": null,
+    "versionUpgradeOption": "OnceNewDefaultVersionAvailable"
+  },
+  "resourceGroup": "itcs355-6688218",
+  "sku": {
+    "capacity": 10,
+    "family": null,
+    "name": "GlobalStandard",
+    "size": null,
+    "tier": null
+  },
+  "systemData": {
+    "createdAt": "2026-10-16T08:52:06.766746+00:00",
+    "createdBy": "peerawat.son@student.mahidol.ac.th",
+    "createdByType": "User",
+    "lastModifiedAt": "2026-10-16T08:52:06.766746+00:00",
+    "lastModifiedBy": "peerawat.son@student.mahidol.ac.th",
+    "lastModifiedByType": "User"
+  },
+  "tags": null,
+  "type": "Microsoft.CognitiveServices/accounts/deployments"
+}

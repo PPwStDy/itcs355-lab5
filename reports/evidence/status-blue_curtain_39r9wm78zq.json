@@ -1,0 +1,32 @@
+{
+  "name": "blue_curtain_39r9wm78zq",
+  "status": "Running",
+  "studio_url": "https://ml.azure.com/runs/blue_curtain_39r9wm78zq?wsid=/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourcegroups/itcs355-6688218/workspaces/itcs355-6688218&tid=9bc585f9-a8b8-431c-9013-efa7b2b40cdf",
+  "children": [
+    {
+      "name": "bf9d042e-f9d2-415a-ad9f-bc91525fffff",
+      "status": "Completed",
+      "display_name": "ingest"
+    },
+    {
+      "name": "d60c622e-3d45-4a37-b6f2-ca7bcd2655ed",
+      "status": "Completed",
+      "display_name": "validate"
+    },
+    {
+      "name": "60bd68e1-5571-4256-a728-7e1823d86ac7",
+      "status": "Completed",
+      "display_name": "train"
+    },
+    {
+      "name": "2ceac7cf-d25b-484f-b600-b4f46879dcd9",
+      "status": "Completed",
+      "display_name": "evaluate"
+    },
+    {
+      "name": "bd0cd1e2-49d9-4c04-8bc8-d53a43edf39f",
+      "status": "Completed",
+      "display_name": "register"
+    }
+  ]
+}

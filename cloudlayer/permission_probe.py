@@ -35,8 +35,11 @@ except HttpResponseError as error:
         raise
 else:
     if "--expect-allowed" in sys.argv:
-        print(json.dumps(dict(operation="list staging endpoints", allowed=True,
-                              identity="lab5-training")))
+        print(
+            json.dumps(
+                dict(operation="list staging endpoints", allowed=True, identity="lab5-training")
+            )
+        )
     else:
         raise RuntimeError(
             "Workspace read still allowed; removal has not propagated or another grant exists"

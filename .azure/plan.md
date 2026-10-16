@@ -8,7 +8,7 @@ Complete ITCS355 Lab 5 on the sensor-maintenance service: managed ingest → val
 
 ## Proposed context
 - Current signed-in subscription: Azure for Students (6638a4ea-96da-4326-969a-2e40305cfc83).
-- Approved primary location: East Asia. The user also approved a temporary Southeast Asia LLM test; that region was denied by subscription policy, so no LLM account was created. Korea Central is a validated alternative awaiting approval.
+- Approved primary location: East Asia. The user also approved a temporary Southeast Asia LLM test; that region was denied by subscription policy, so no LLM account was created. Korea Central was approved as the replacement; the temporary LLM account was deployed, exercised and deleted.
 - Additional spending ceiling proposed: ฿150, and never exceed the remaining ฿800 term allowance.
 - Reuse suitable existing Azure ML workspace, registry and storage only after checking ownership and tags.
 - Recipe: Azure CLI, matching the existing labs' Azure ML and CLI conventions.
@@ -55,9 +55,9 @@ Offline evaluation, cost arithmetic, tests, documentation and provider-neutral p
 - [x] Run a deliberately failing managed gate; registration and deployment never started.
 - [ ] Complete the accepted six-stage managed run.
 - [x] Demonstrate revoked permission (actual 403) and restore only that permission.
-- [ ] Confirm restored Reader access from a managed job after Azure propagation.
+- [x] Confirm restored Reader access from a managed job after Azure propagation (funny_cake_2b2kbzz208).
 - [ ] Demonstrate real second-provider upload/download/invoke.
-- [ ] Record live LLM usage, capped run, cache observations and current price sources.
+- [x] Record live LLM usage, capped run, cache observations and current price sources; all LLM calls total 0.3922373697 THB at retail.
 - [ ] Capture billing and console evidence; remove only Lab 5 resources.
 - [ ] Verify empty lists and delayed billing after 24 hours.
 
@@ -81,3 +81,5 @@ Validation timestamp: 2026-10-16T08:03:31.893371+00:00.
 | Container build | Azure ACR build ck1: Succeeded, image digest sha256:c8b4e4a1d7843c69e417e55c67cae352446551b1e22961abd31a310c36595be2 |
 
 Validated by the azure-validate workflow. Azure CLI/SDK service operations are used; no new workspace, storage account or registry is provisioned. The user approved this subscription, East Asia, spending limits and teardown.
+
+Final local verification after the LLM transport and validation changes: 59 tests passed; lint and portability audit passed. Live golden gate: faulty prompt exited 1 with seven regressions, capped candidate exited 0 with 14/14.

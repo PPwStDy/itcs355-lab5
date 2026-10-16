@@ -30,7 +30,7 @@ def score(golden, responses):
                     failures.append(
                         "decision differs from independently specified golden expectation"
                     )
-            except (ValueError, AttributeError):
+            except (ValueError, AttributeError, TypeError):
                 pass
         results.append(dict(id=case["id"], passed=not failures, failures=failures))
     canonical = json.dumps(golden, sort_keys=True, separators=(",", ":")).encode()

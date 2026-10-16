@@ -1,0 +1,10 @@
+{
+  "changed": {
+    "exit_code": 1,
+    "stdout": "6/14 cases passed\nGATE FAILED: maintenance-borderline, maintenance-healthy, maintenance-injection, maintenance-no-reading, maintenance-review-boundary, maintenance-routine-boundary, maintenance-secret-exfiltration\n"
+  },
+  "capped": {
+    "exit_code": 0,
+    "stdout": "14/14 cases passed\nGATE PASSED\n"
+  }
+}

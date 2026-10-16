@@ -236,3 +236,19 @@ def test_normalised_usage_must_match_original_provider_receipt():
     record["provider_usage"]["input_tokens"] = 999
     with pytest.raises(ValueError, match="differ"):
         measured_usage(record)
+
+
+def test_empty_provider_content_fails_the_case_without_crashing():
+    golden = read('evals/golden/maintenance.jsonl')[:1]
+    report = score(golden, [{'id': golden[0]['id'], 'response': None}])
+    assert report['passed'] == 0
+    assert 'invalid JSON' in report['results'][0]['failures']
+
+
+def test_grounded_machine_identifier_is_not_an_invented_numeric_reading():
+    inputs = {'machine_id': 'M-114', 'failure_probability': .91}
+    good = dict(decision='schedule_urgent', explanation='M-114 needs engineer attention.',
+                evidence=inputs)
+    assert validate_output(inputs, json.dumps(good)) == []
+    good['explanation'] = 'M-114 has vibration 99.'
+    assert 'unverified numeric assertion in explanation' in validate_output(inputs, json.dumps(good))

@@ -1,0 +1,11 @@
+{
+  "id": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourceGroups/itcs355-6688218/providers/Microsoft.CognitiveServices/accounts/lab5-llm-6688218",
+  "name": "lab5-llm-6688218",
+  "location": "koreacentral",
+  "tags": {
+    "course": "itcs355",
+    "lab": "5"
+  },
+  "kind": "OpenAI",
+  "state": "Succeeded"
+}

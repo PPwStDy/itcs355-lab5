@@ -88,7 +88,7 @@ make teardown
 make teardown-verify         # read-only; checks without deleting
 ```
 
-Only the recorded Lab 5 resources and their scoped role grants are removed. Shared registry, workspace, storage and the pre-existing `cpu-cluster` remain in place. Verification lists endpoints, computes, schedules and identities; it must return empty for Lab 5. Completed experiment history and small versioned artifacts may remain for reproducibility, with shared storage allocation disclosed in the bill. Recheck the console and delayed billing after 24 hours. A provider-console screenshot is still required; a generated picture of an empty list would not be proof.
+Only the recorded Lab 5 resources and their scoped role grants are removed. Shared registry, workspace, storage and the pre-existing `cpu-cluster` remain in place. Verification lists endpoints, computes, schedules and identities; it must return empty for Lab 5. Completed experiment history and small versioned artifacts may remain for reproducibility, with shared storage allocation disclosed in the bill. Recheck the console and delayed billing after 24 hours. The provider-console screenshot and final inventory are retained under reports/evidence when cleanup completes.
 
 ## Tasks 7–8 — Golden set and guardrail
 
@@ -99,14 +99,14 @@ Operator notes never enter the trusted instruction input. The application valida
 The live recorder accepts a configured HTTPS chat-completion endpoint and writes raw provider usage, model/request IDs, prompt hashes and output-cap settings. It evaluates raw responses before accepting a change, and retains controlled output separately. Built-in policy refusals are explicitly marked as local, without invented usage.
 
 ```sh
-python scripts/record_llm.py --out reports/evidence/live-baseline.jsonl
-python scripts/llm_eval.py --responses reports/evidence/live-baseline.jsonl --out reports/evidence/live-baseline-eval.json
-python scripts/record_llm.py --max-output-tokens 100 --out reports/evidence/live-capped.jsonl
-python scripts/llm_eval.py --responses reports/evidence/live-capped.jsonl \
-  --baseline reports/evidence/live-baseline-eval.json --out reports/evidence/live-capped-eval.json
+python scripts/record_llm.py --max-output-tokens 1000 --out reports/evidence/new-live-baseline.jsonl
+python scripts/llm_eval.py --responses reports/evidence/new-live-baseline.jsonl --out reports/evidence/new-live-baseline-eval.json
+python scripts/record_llm.py --max-output-tokens 500 --out reports/evidence/new-live-capped.jsonl
+python scripts/llm_eval.py --responses reports/evidence/new-live-capped.jsonl \
+  --baseline reports/evidence/new-live-baseline-eval.json --out reports/evidence/new-live-capped-eval.json
 ```
 
-Set `LLM_CHAT_URL`, `LLM_API_KEY`, optionally `LLM_MODEL` and `LLM_AUTH_HEADER` outside Git. East Asia has no synchronous GPT chat quota. The approved Southeast Asia GPT-5 mini alternative was rejected by the subscription’s allowed-region policy before an account was created. See `reports/llm-region-amendment.md` and the captured policy/rejection evidence. Live model/prompt-change and capped-run evidence remain pending.
+Set `LLM_CHAT_URL`, `LLM_API_KEY`, optionally `LLM_MODEL` and `LLM_AUTH_HEADER` outside Git. For GPT-5 mini set `LLM_REASONING_EFFORT=minimal`; the transport then uses its supported completion-token cap and omits temperature. The initial Southeast Asia alternative was blocked by policy. After user approval, the live exercise ran on GPT-5 mini in Korea Central. Actual receipts show the initial prompt at 10/14, clarified baseline at 13/14, faulty prompt at 6/14 with seven regressions, and the capped clarified candidate at 14/14. `live-gate-command.json` records the real receipt-based gate exiting 1 for the faulty prompt and 0 for the capped candidate. The temporary LLM account is deleted after these runs.
 
 ## Task 9 — Token accounting
 
@@ -114,4 +114,12 @@ Token counts must come from provider `prompt_tokens`, `completion_tokens` and ca
 
 Working per request: (fresh input × input rate + output × output rate + cached reads × cache-read rate + cache writes × cache-write rate) / 1,000,000. Average measured requests ×1,000 gives THB per 1,000 calls. A configured output cap is not a measured saving: compare actual before/after receipts and require the capped eval to pass. Cache break-even is write surcharge / (write surcharge + saving per hit), or not applicable when a hit cannot save money. Azure-style automatic caches with no write surcharge have a zero break-even threshold when reads are cheaper; never impose another provider's cache-write premium.
 
-No live token bill or measured cache hit rate is claimed until a usable endpoint is available. The cost report explicitly states this remaining requirement.
+The live receipts total 0.3922373697 THB at the verified retail rates. The capped candidate costs 6.7282 THB per 1,000 provider calls and recorded a 0% cache hit rate. Lowering the cap did not reduce observed usage; the cost report shows the negative saving and sampling limitation. Invoice reconciliation remains pending.
+
+Replay the actual faulty live response through the guardrail without making a cloud call:
+
+```sh
+python scripts/replay_live_guardrail.py
+```
+
+This demonstrates a faulty-prompt decision caught by output validation. Operator notes were excluded from provider input, so it is not presented as a successful injected-note attack.

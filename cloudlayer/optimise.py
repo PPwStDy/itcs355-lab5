@@ -12,13 +12,41 @@ def nodes():
 
 
 def main():
-    az("ml", "compute", "update", "-n", COMPUTE, "-g", RG, "-w", WS,
-       "--min-instances", "1", "-o", "json")
+    az(
+        "ml",
+        "compute",
+        "update",
+        "-n",
+        COMPUTE,
+        "-g",
+        RG,
+        "-w",
+        WS,
+        "--min-instances",
+        "1",
+        "-o",
+        "json",
+    )
     before = nodes()
     if len(before) != 1:
         raise RuntimeError("Warm-node baseline unavailable; do not claim measured savings")
-    az("ml", "compute", "update", "-n", COMPUTE, "-g", RG, "-w", WS,
-       "--min-instances", "0", "--idle-time-before-scale-down", "60", "-o", "json")
+    az(
+        "ml",
+        "compute",
+        "update",
+        "-n",
+        COMPUTE,
+        "-g",
+        RG,
+        "-w",
+        WS,
+        "--min-instances",
+        "0",
+        "--idle-time-before-scale-down",
+        "60",
+        "-o",
+        "json",
+    )
     started = time.monotonic()
     while time.monotonic() - started < 300:
         after = nodes()

@@ -288,6 +288,12 @@ def teardown():
     for item in list(ml.compute.list()):
         if owned(item, COMPUTE):
             ml.compute.begin_delete(item.name).result()
+    accounts = az("cognitiveservices", "account", "list", "-g", RG, "-o", "json")
+    for account in accounts:
+        if account["name"] == "lab5-llm-6688218" and all(
+            (account.get("tags") or {}).get(k) == v for k, v in TAGS.items()
+        ):
+            az("cognitiveservices", "account", "delete", "-g", RG, "-n", account["name"])
     # Remove scoped assignments attached to only the recorded Lab 5 identities.
     record = EVIDENCE / "identity-assignments.json"
     if record.exists():

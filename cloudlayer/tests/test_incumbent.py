@@ -1,4 +1,5 @@
 """Bootstrap must handle an absent parent without masking access failures."""
+
 from types import SimpleNamespace
 from unittest.mock import Mock
 import pytest
