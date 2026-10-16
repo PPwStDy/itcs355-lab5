@@ -245,6 +245,25 @@
       "type": "Microsoft.Authorization/roleAssignments",
       "updatedBy": "907e21d9-24eb-4337-b32d-8d3e4a427e7e",
       "updatedOn": "2026-10-16T08:04:28.591210+00:00"
+    },
+    {
+      "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR ((!(SubOperationMatches{'Blob.List'})) AND (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringLike 'itcs355-lab5-staging_blue_model_config_map.json_*')))",
+      "conditionVersion": "2.0",
+      "createdBy": null,
+      "createdOn": "2026-10-16T09:42:10.815663+00:00",
+      "delegatedManagedIdentityResourceId": null,
+      "description": "Temporary Lab 5 blue endpoint manifest only; no listing; remove at lab teardown.",
+      "id": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourceGroups/itcs355-6688218/providers/Microsoft.Storage/storageAccounts/itcs3556688218/blobServices/default/containers/azureml/providers/Microsoft.Authorization/roleAssignments/640f079f-876e-40f4-9ee4-b1b02ef19261",
+      "name": "640f079f-876e-40f4-9ee4-b1b02ef19261",
+      "principalId": "15feb705-56a8-462d-93c5-563dc431845f",
+      "principalType": "ServicePrincipal",
+      "resourceGroup": "itcs355-6688218",
+      "roleDefinitionId": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+      "scope": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourceGroups/itcs355-6688218/providers/Microsoft.Storage/storageAccounts/itcs3556688218/blobServices/default/containers/azureml",
+      "systemData": null,
+      "type": "Microsoft.Authorization/roleAssignments",
+      "updatedBy": "907e21d9-24eb-4337-b32d-8d3e4a427e7e",
+      "updatedOn": "2026-10-16T09:42:11.070668+00:00"
     }
   ]
 }

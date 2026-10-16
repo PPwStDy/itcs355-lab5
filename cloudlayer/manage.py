@@ -54,6 +54,37 @@ def assign(principal, role, scope):
     )
 
 
+def assign_serving_manifest_reader(principal, storage_id):
+    """User-approved temporary read of this deployment's startup manifests only."""
+    condition = (
+        "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}))"
+        " OR ((!(SubOperationMatches{'Blob.List'})) AND "
+        "(@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] "
+        "StringLike 'itcs355-lab5-staging_blue_model_config_map.json_*')))"
+    )
+    return az(
+        "role",
+        "assignment",
+        "create",
+        "--assignee-object-id",
+        principal,
+        "--assignee-principal-type",
+        "ServicePrincipal",
+        "--role",
+        "Storage Blob Data Reader",
+        "--scope",
+        storage_id + "/blobServices/default/containers/azureml",
+        "--condition",
+        condition,
+        "--condition-version",
+        "2.0",
+        "--description",
+        "Temporary Lab 5 blue endpoint manifest only; no listing; remove at lab teardown.",
+        "-o",
+        "json",
+    )
+
+
 def provision():
     from azure.ai.ml.entities import (
         AmlCompute,
@@ -101,6 +132,9 @@ def provision():
         ("ci", "Managed Identity Operator", identities["serving"]["id"]),
     ]:
         assignments.append(assign(identities[purpose]["principalId"], role, scope))
+    assignments.append(
+        assign_serving_manifest_reader(identities["serving"]["principalId"], storage_id)
+    )
     if workspace.get("application_insights"):
         assignments.append(
             assign(
@@ -263,8 +297,15 @@ def inventory():
         and j.status not in {"Completed", "Failed", "Canceled"}
     ]
     result["llm_accounts"] = az(
-        "cognitiveservices", "account", "list", "-g", RG, "--query",
-        "[?tags.lab=='5' && tags.course=='itcs355'].{id:id,name:name}", "-o", "json"
+        "cognitiveservices",
+        "account",
+        "list",
+        "-g",
+        RG,
+        "--query",
+        "[?tags.lab=='5' && tags.course=='itcs355'].{id:id,name:name}",
+        "-o",
+        "json",
     )
     save(
         "resource-inventory.json",
@@ -275,6 +316,7 @@ def inventory():
 
 def teardown():
     ml = ml_client()
+
     def owned(item, name):
         return item.name == name and all((item.tags or {}).get(k) == v for k, v in TAGS.items())
 

@@ -40,7 +40,19 @@ def main():
             "deployment-preflight.json",
             dict(model=registered, status="Starting", automatic_traffic=ep.traffic),
         )
-        result = m.online_deployments.begin_create_or_update(deployment).result()
+        try:
+            result = m.online_deployments.begin_create_or_update(deployment).result()
+        except Exception as error:
+            save(
+                "deployment-preflight.json",
+                dict(
+                    model=registered,
+                    status="Failed",
+                    automatic_traffic=ep.traffic,
+                    error=str(error),
+                ),
+            )
+            raise
         save(
             "deployment-preflight.json",
             dict(model=registered, status=result.provisioning_state, automatic_traffic=ep.traffic),

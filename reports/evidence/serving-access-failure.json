@@ -1,0 +1,11 @@
+{
+  "deployment": "blue",
+  "endpoint": "itcs355-lab5-staging",
+  "image_pull": "Succeeded",
+  "model_download": "Failed",
+  "error_code": "AuthorizationPermissionMismatch",
+  "request": "HEAD https://itcs3556688218.blob.core.windows.net/azureml/itcs355-lab5-staging_blue_model_config_map.json_6160f8d2-ba5c-4137-b3be-6b6d27d91628",
+  "existing_reader_scope": "workspaceblobstore container",
+  "missing_blob_container": "azureml",
+  "account_wide_grant": "Rejected by automatic approval review; not executed."
+}

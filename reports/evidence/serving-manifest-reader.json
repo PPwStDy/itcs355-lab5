@@ -1,0 +1,8 @@
+{
+  "id": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourceGroups/itcs355-6688218/providers/Microsoft.Storage/storageAccounts/itcs3556688218/blobServices/default/containers/azureml/providers/Microsoft.Authorization/roleAssignments/640f079f-876e-40f4-9ee4-b1b02ef19261",
+  "scope": "/subscriptions/6638a4ea-96da-4326-969a-2e40305cfc83/resourceGroups/itcs355-6688218/providers/Microsoft.Storage/storageAccounts/itcs3556688218/blobServices/default/containers/azureml",
+  "condition": "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR ((!(SubOperationMatches{'Blob.List'})) AND (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:path] StringLike 'itcs355-lab5-staging_blue_model_config_map.json_*')))",
+  "condition_version": "2.0",
+  "account_wide_access": false,
+  "user_approved": true
+}
