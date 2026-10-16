@@ -44,10 +44,17 @@ def main():
                 "--body",
                 "@" + str(path),
             ],
-            check=True,
+            check=False,
             capture_output=True,
             text=True,
         )
+    if output.returncode:
+        save("billing-query-error.json", dict(
+            captured_at=datetime.now(timezone.utc).isoformat(),
+            query=query, error=output.stderr.strip(),
+            conclusion="Query unavailable; preserve the prior receipt and do not infer zero cost."
+        ))
+        raise RuntimeError(output.stderr.strip())
     properties = json.loads(output.stdout)["properties"]
     if properties.get("nextLink"):
         raise ValueError("Billing is paginated; capture all pages before claiming a total")

@@ -15,3 +15,5 @@ User approved the Southeast Asia amendment. Azure rejected account creation with
 ## Replacement candidate — Korea Central
 
 Korea Central is explicitly included in the subscription's allowed-region policy and has 500K TPM platform capacity and 500K TPM available subscription quota for gpt-5-mini 2025-08-07 GlobalStandard. The capacity skill's read-only check passed. Proposed resource name, group, S0/GlobalStandard settings, 10-unit deployment, synthetic data, 100-call/1,000-completion-token limits, 10 THB LLM ceiling, 150 THB overall ceiling and immediate teardown are unchanged. Only account region changes from the denied Southeast Asia to Korea Central. Await user approval before account creation.
+
+Current Microsoft retail API rates were verified on 2026-10-16 for Korea Central: GPT 5 Mini Inpt Glbl USD0.25/1M, cchd Inpt Glbl USD0.025/1M, outpt Glbl USD2/1M. Exact meter IDs and effective dates are retained in evidence/llm-price-query.json. This confirms the planned rate rather than relying on the historical blog.
