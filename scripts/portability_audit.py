@@ -37,7 +37,12 @@ def main() -> int:
             for lineno, line in enumerate(path.read_text().splitlines(), 1):
                 if line.lstrip().startswith("#"):
                     continue  # comments may name providers; code may not
-                for pattern, label in FORBIDDEN:
+                patterns = FORBIDDEN + (
+                    [(r"(?i)\b(?:aws|azure|gcp)\b", "provider name in core code")]
+                    if folder == "src"
+                    else []
+                )
+                for pattern, label in patterns:
                     if re.search(pattern, line, flags=re.MULTILINE):
                         rel = path.relative_to(ROOT)
                         hits.append(f"{rel}:{lineno}  {label}  ->  {line.strip()[:80]}")
@@ -49,7 +54,10 @@ def main() -> int:
         print("\nMove each reference into cloudlayer/ or into cloud.env.")
         return 1
 
-    print(f"PORTABILITY AUDIT PASSED — {', '.join(SCANNED)} contain no provider-specific strings")
+    print(
+        f"PORTABILITY AUDIT PASSED — {', '.join(SCANNED)} contain no forbidden "
+        "provider URI, SDK import, or developer-path patterns; core provider-name check passed"
+    )
     return 0
 
 

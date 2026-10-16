@@ -7,38 +7,28 @@ checking is the kind of thing the cost report is designed to catch.
 Rates are THB per hour, on-demand. Discounted (spot / low-priority / preemptible) compute
 is roughly 30% of on-demand across all three providers — SPOT_FACTOR below.
 """
+
 from __future__ import annotations
 
-# TODO(Lab 2): verify each of these against your provider's pricing page for YOUR region,
-# and record in reports/lab2-comparison.md when you checked and what you found.
-PRICE_TABLE: dict[str, dict[str, float]] = {
-    "local": {"local": 0.0},
-    "aws": {
-        "ml.m5.large": 4.2,
-        "ml.m5.xlarge": 8.4,
-        "ml.c5.xlarge": 7.3,
-        "ml.g4dn.xlarge": 26.0,
-    },
-    "azure": {
-        "Standard_DS3_v2": 8.1,
-        "Standard_F4s_v2": 6.9,
-        "Standard_NC4as_T4_v3": 24.5,
-    },
-    "gcp": {
-        "n1-standard-4": 7.6,
-        "e2-standard-4": 6.4,
-        "n1-standard-4+t4": 25.2,
-    },
-}
+import json
+from src import config
+
+
+def price_table():
+    """Legacy tutorial rates; Lab 5 accounting uses separately verified receipts."""
+    return json.loads(config.cost_rate_file().read_text())
+
 
 SPOT_FACTOR = 0.30
 DEFAULT_UTILISATIONS = (0.05, 0.25, 0.80)
 
 
 def hourly_rate(provider: str, instance: str, spot: bool = False) -> float:
-    table = PRICE_TABLE.get(provider.lower())
+    table = price_table().get(provider.lower())
     if table is None:
-        raise KeyError(f"No price table for provider {provider!r}. Add it to src/costs.py.")
+        raise KeyError(
+            f"No price table for provider {provider!r}. Configure COST_RATE_FILE with verified rates."
+        )
     if instance not in table:
         raise KeyError(
             f"No rate for {instance!r} on {provider}. Known: {sorted(table)}. "

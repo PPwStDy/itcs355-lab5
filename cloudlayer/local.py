@@ -1,7 +1,6 @@
 """Explicit filesystem simulation, never presented as a managed cloud execution."""
 
 import json
-from pathlib import Path
 from cloudlayer.base import LocalAdapter
 
 

@@ -181,7 +181,6 @@ class AzureAdapter(CloudAdapter):
         stage: str = "Staging",
     ) -> str:
         """Register a model with all mandatory lineage tags and promote to staging."""
-        import json
         import mlflow
         from mlflow.tracking import MlflowClient
 
@@ -383,7 +382,6 @@ class AzureAdapter(CloudAdapter):
         traffic: int = 100,
     ) -> str:
         """Deploy model to Azure ML Managed Online Endpoint or local serving."""
-        import json
         import subprocess
         import tempfile
         import yaml
@@ -550,7 +548,6 @@ class AzureAdapter(CloudAdapter):
         import json
         import os
         import time
-        from pathlib import Path
 
         timestamp = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
         record = {

@@ -87,3 +87,8 @@ def load(strict: bool = True) -> Config:
 
 def code_version():
     return os.environ.get("CODE_VERSION", "local-uncommitted")
+
+
+def cost_rate_file():
+    path = Path(os.environ.get("COST_RATE_FILE", "config/tutorial-cost-rates.json"))
+    return path if path.is_absolute() else REPO_ROOT / path
