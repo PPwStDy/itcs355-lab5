@@ -37,6 +37,12 @@ def client():
 def incumbent_score(ml, source, metrics, bootstrap):
     from azure.core.exceptions import ResourceNotFoundError
 
+    # Query the workspace collection first: Azure can return AuthorizationFailed
+    # for a child lookup whose parent endpoint has never existed.
+    if not any(ep.name == "itcs355-lab5-staging" for ep in ml.online_endpoints.list()):
+        if bootstrap:
+            return None
+        raise RuntimeError("No deployed incumbent; explicit bootstrap required")
     try:
         deployed = ml.online_deployments.get(endpoint_name="itcs355-lab5-staging", name="blue")
     except ResourceNotFoundError:

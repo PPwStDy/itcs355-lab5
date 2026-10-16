@@ -156,7 +156,7 @@ def provision():
     return data
 
 
-def submit(reject=False):
+def submit(reject=False, bootstrap=False):
     from cloudlayer.pipelines import compile_azure
 
     import hashlib
@@ -185,7 +185,9 @@ def submit(reject=False):
         ["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, check=True
     ).stdout.strip()
     (ROOT / "reports/cloud-settings.json").write_text(json.dumps(cfg, indent=2))
-    job = compile_azure(cfg, bootstrap=not reject, forced_incumbent=0.99 if reject else None)
+    job = compile_azure(
+        cfg, bootstrap=bootstrap and not reject, forced_incumbent=0.99 if reject else None
+    )
     result = ml_client().jobs.create_or_update(job)
     save(
         "managed-rejected-run.json" if reject else "managed-run.json",
@@ -263,15 +265,18 @@ def inventory():
 
 def teardown():
     ml = ml_client()
+    def owned(item, name):
+        return item.name == name and all((item.tags or {}).get(k) == v for k, v in TAGS.items())
+
     for item in list(ml.schedules.list()):
-        if (item.tags or {}).get("lab") == "5":
+        if owned(item, "lab5-weekly"):
             ml.schedules.begin_disable(item.name).result()
             ml.schedules.begin_delete(item.name).result()
     for item in list(ml.online_endpoints.list()):
-        if (item.tags or {}).get("lab") == "5":
+        if owned(item, "itcs355-lab5-staging"):
             ml.online_endpoints.begin_delete(item.name).result()
     for item in list(ml.compute.list()):
-        if (item.tags or {}).get("lab") == "5":
+        if owned(item, COMPUTE):
             ml.compute.begin_delete(item.name).result()
     # Remove scoped assignments attached to only the recorded Lab 5 identities.
     record = EVIDENCE / "identity-assignments.json"
@@ -294,11 +299,12 @@ def main():
         choices=["provision", "submit", "reject", "status", "schedule", "inventory", "teardown"],
     )
     ap.add_argument("--name")
+    ap.add_argument("--bootstrap", action="store_true")
     args = ap.parse_args()
     if args.action == "provision":
         provision()
     elif args.action in ("submit", "reject"):
-        submit(args.action == "reject")
+        submit(args.action == "reject", bootstrap=args.bootstrap)
     elif args.action == "status":
         status(args.name)
     elif args.action == "schedule":
