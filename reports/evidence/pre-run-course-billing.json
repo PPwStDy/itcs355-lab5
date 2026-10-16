@@ -1,0 +1,18 @@
+{
+  "captured_at": "2026-10-16T07:56:01.746232+00:00",
+  "scope": "course=itcs355",
+  "period_from": "2026-09-01",
+  "period_to": "2026-10-17",
+  "source": "Azure Cost Management ActualCost query 2023-03-01",
+  "columns": [
+    "Cost",
+    "Currency"
+  ],
+  "rows": [
+    [
+      6.95145721947742,
+      "USD"
+    ]
+  ],
+  "nextLink": null
+}

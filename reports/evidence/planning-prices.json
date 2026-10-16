@@ -1,0 +1,32 @@
+{
+  "captured_at": "2026-10-16T07:53:34.526564+00:00",
+  "prices": [
+    {
+      "currencyCode": "USD",
+      "tierMinimumUnits": 0.0,
+      "retailPrice": 0.214,
+      "unitPrice": 0.214,
+      "armRegionName": "eastasia",
+      "location": "AP East",
+      "effectiveStartDate": "2025-05-01T00:00:00Z",
+      "meterId": "b194ea06-90ab-4406-aa81-293cbfe2aece",
+      "meterName": "DS2 v2",
+      "productId": "DZH318Z0BQ4C",
+      "skuId": "DZH318Z0BQ4C/01D5",
+      "productName": "Virtual Machines DSv2 Series",
+      "skuName": "DS2 v2",
+      "serviceName": "Virtual Machines",
+      "serviceId": "DZH313Z7MMC8",
+      "serviceFamily": "Compute",
+      "unitOfMeasure": "1 Hour",
+      "type": "Consumption",
+      "isPrimaryMeterRegion": false,
+      "armSkuName": "Standard_DS2_v2"
+    }
+  ],
+  "exchange": {
+    "usd_thb": 33.54032833690221,
+    "rate_date": "2026-10-15",
+    "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+  }
+}

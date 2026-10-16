@@ -1,0 +1,42 @@
+# NEVER commit this. Real credentials and account identifiers live here.
+cloud.env
+
+# DVC manages these; Git must not.
+data/raw/
+data/_local_blob/
+data/*.csv
+.dvc/cache/
+
+# Local tracking store
+mlruns/
+mlartifacts/
+mlflow.db
+
+reports/*.json
+reports/*.joblib
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# Excel lock files — created while the specification workbook is open.
+~$*
+
+# ruff cache
+.ruff_cache/
+
+# OS and cloud job logs
+.DS_Store
+reports/azureml-logs*/
+
+
+# Retain only reviewed, non-secret exercise evidence.
+!reports/evidence/*.json
+!reports/evidence/*.txt
+!reports/threshold-calibration.json
+
+# Retain reviewed Lab 5 evidence only, never credentials.
+!reports/evidence/*.json
+!reports/evidence/*.txt
+*.env
+!cloud.env.example
